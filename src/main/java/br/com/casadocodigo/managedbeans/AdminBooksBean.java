@@ -28,6 +28,12 @@ public class AdminBooksBean {
 	public void save(){
 		populateBookAuthor();		
 		productDAO.save(product);
+		clearObjects();
+	}
+
+	private void clearObjects() {
+		this.product = new Book();
+		this.selectedAuthorsIds.clear();
 	}
 
 	private void populateBookAuthor() {
