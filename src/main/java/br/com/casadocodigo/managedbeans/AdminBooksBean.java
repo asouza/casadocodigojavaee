@@ -3,12 +3,10 @@ package br.com.casadocodigo.managedbeans;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
 
-import br.com.casadocodigo.daos.AuthorDAO;
 import br.com.casadocodigo.daos.BookDAO;
 import br.com.casadocodigo.models.Author;
 import br.com.casadocodigo.models.Book;
@@ -19,9 +17,6 @@ public class AdminBooksBean {
 	private Book product = new Book();
 	@Inject
 	private BookDAO productDAO;
-	@Inject
-	private AuthorDAO authorDAO;
-	private List<Author> authors = new ArrayList<Author>();
 	private List<String> selectedAuthorsIds = new ArrayList<>();
 
 	@Transactional
@@ -52,15 +47,6 @@ public class AdminBooksBean {
 	
 	public Book getProduct() {
 		return product;
-	}
-	
-	public List<Author> getAuthors() {
-		return authors;
-	}
-	
-	@PostConstruct
-	private void loadObjects(){
-		this.authors = authorDAO.list();
 	}
 	
 }
