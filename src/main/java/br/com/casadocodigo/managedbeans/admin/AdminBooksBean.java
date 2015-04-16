@@ -1,4 +1,4 @@
-package br.com.casadocodigo.managedbeans;
+package br.com.casadocodigo.managedbeans.admin;
 
 import java.util.ArrayList;
 import java.util.List;

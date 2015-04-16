@@ -72,4 +72,7 @@ public class Book {
 		authors.add(author);
 	}
 
+	public List<Author> getAuthors() {
+		return authors;
+	}
 }
