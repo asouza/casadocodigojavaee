@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.enterprise.inject.Model;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
+import javax.faces.context.Flash;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
 
@@ -20,10 +23,12 @@ public class AdminBooksBean {
 	private List<String> selectedAuthorsIds = new ArrayList<>();
 
 	@Transactional
-	public void save(){
+	public String save(){
 		populateBookAuthor();		
 		productDAO.save(product);
+		FacesContext.getCurrentInstance().addMessage("messages",new FacesMessage("Livro gravado com sucesso"));
 		clearObjects();
+		return "/livros/list?faces-redirect=true";
 	}
 
 	private void clearObjects() {
