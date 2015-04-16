@@ -26,7 +26,8 @@ public class AdminBooksBean {
 	public String save(){
 		populateBookAuthor();		
 		productDAO.save(product);
-		FacesContext.getCurrentInstance().addMessage("messages",new FacesMessage("Livro gravado com sucesso"));
+		FacesContext.getCurrentInstance().getExternalContext().getFlash().setKeepMessages(true);
+		FacesContext.getCurrentInstance().addMessage("messages",new FacesMessage("Livro gravado com sucesso"));		
 		clearObjects();
 		return "/livros/list?faces-redirect=true";
 	}
