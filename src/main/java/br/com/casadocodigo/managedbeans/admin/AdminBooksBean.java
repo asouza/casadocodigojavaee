@@ -11,6 +11,7 @@ import javax.inject.Inject;
 import javax.transaction.Transactional;
 
 import br.com.casadocodigo.daos.BookDAO;
+import br.com.casadocodigo.infra.MessagesHelper;
 import br.com.casadocodigo.models.Author;
 import br.com.casadocodigo.models.Book;
 
@@ -21,13 +22,14 @@ public class AdminBooksBean {
 	@Inject
 	private BookDAO productDAO;
 	private List<String> selectedAuthorsIds = new ArrayList<>();
+	@Inject
+	private MessagesHelper messagesHelper;
 
 	@Transactional
 	public String save(){
 		populateBookAuthor();		
 		productDAO.save(product);
-		FacesContext.getCurrentInstance().getExternalContext().getFlash().setKeepMessages(true);
-		FacesContext.getCurrentInstance().addMessage("messages",new FacesMessage("Livro gravado com sucesso"));		
+		messagesHelper.addFlash(new FacesMessage("Livro gravado com sucesso"));
 		clearObjects();
 		return "/livros/list?faces-redirect=true";
 	}
