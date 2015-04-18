@@ -23,10 +23,9 @@
 		</div>
 		<div>
 			<h:outputLabel>Autores</h:outputLabel>
-			<h:selectManyListbox value="#{adminBooksBean.selectedAuthorsIds}">
+			<h:selectManyListbox value="#{adminBooksBean.product.authors}" converter="genericListConverter">
 				<f:selectItems value="#{authorsList.get()}" var="author"
-					itemLabel="#{author.name}" itemValue="#{author.id}" />
-
+					itemLabel="#{author.name}" itemValue="#{author}"/>
 			</h:selectManyListbox>
 		</div>
 		<h:commandButton value="Gravar" action="#{adminBooksBean.save}" />

@@ -24,6 +24,7 @@ public class AdminBooksBean {
 	private List<String> selectedAuthorsIds = new ArrayList<>();
 	@Inject
 	private MessagesHelper messagesHelper;
+	private List<Author> selectedAuthors = new ArrayList<>();
 
 	@Transactional
 	public String save(){
@@ -32,6 +33,14 @@ public class AdminBooksBean {
 		messagesHelper.addFlash(new FacesMessage("Livro gravado com sucesso"));
 		clearObjects();
 		return "/livros/list?faces-redirect=true";
+	}
+	
+	public void setSelectedAuthors(List<Author> selectedAuthors) {
+		this.selectedAuthors = selectedAuthors;
+	}
+	
+	public List<Author> getSelectedAuthors() {
+		return selectedAuthors;
 	}
 
 	private void clearObjects() {

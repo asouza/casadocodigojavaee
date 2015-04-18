@@ -89,6 +89,14 @@
 			<artifactId>javax.transaction-api</artifactId>
 			<scope>provided</scope>
 		</dependency>
+
+		<!-- omni -->
+
+		<dependency>
+			<groupId>org.omnifaces</groupId>
+			<artifactId>omnifaces</artifactId>
+			<version>2.0</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<finalName>casadocodigo</finalName>

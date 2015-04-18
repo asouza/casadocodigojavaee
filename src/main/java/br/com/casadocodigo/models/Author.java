@@ -6,7 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Author {
+public class Author implements EntityClass {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,7 +16,7 @@ public class Author {
 	/**
 	 * Hibernate only
 	 */
-	private Author(){
+	public Author(){
 		
 	}
 
@@ -39,5 +39,11 @@ public class Author {
 	public void setName(String name) {
 		this.name = name;
 	}
+
+	@Override
+	public String toString() {
+		return "Author [id=" + id + ", name=" + name + "]";
+	}
+
 
 }
