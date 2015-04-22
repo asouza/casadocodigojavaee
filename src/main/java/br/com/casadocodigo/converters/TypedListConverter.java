@@ -8,6 +8,7 @@ import javax.faces.component.UISelectItems;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
+import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -16,7 +17,6 @@ import org.picketbox.util.StringUtil;
 import br.com.casadocodigo.models.EntityClass;
 
 @FacesConverter("genericListConverter")
-@RequestScoped
 public class TypedListConverter implements Converter {
 
 	@PersistenceContext
