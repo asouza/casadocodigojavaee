@@ -14,12 +14,18 @@
 				value="#{adminBooksBean.product.description}" />
 		</div>
 		<div>
-			<h:outputLabel>Número de páginas</h:outputLabel>
-			<h:inputText value="#{adminBooksBean.product.numberOfPages}" />
+			<h:outputLabel>Número de páginas- #{msg.teste}</h:outputLabel>
+			<h:inputText value="#{adminBooksBean.product.numberOfPages}"/>
 		</div>
 		<div>
 			<h:outputLabel>Preço</h:outputLabel>
 			<h:inputText value="#{adminBooksBean.product.price}" />
+		</div>
+		<div>
+			<h:outputLabel>Data de lançamento</h:outputLabel>
+			<h:inputText value="#{adminBooksBean.product.releaseDate}">
+				<f:convertDateTime pattern="yyyy-MM-dd"/>
+			</h:inputText>
 		</div>
 		<div>
 			<h:outputLabel>Autores</h:outputLabel>

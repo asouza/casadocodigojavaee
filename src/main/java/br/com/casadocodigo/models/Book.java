@@ -2,6 +2,8 @@ package br.com.casadocodigo.models;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -28,16 +30,26 @@ public class Book {
 	private String title;
 	@NotBlank
 	@NotNull
-	@Length(min=10)
+	@Length(min = 10)
 	private String description;
 	@Min(50)
 	private int numberOfPages;
 	@DecimalMin("20")
 	private BigDecimal price;
 	@ManyToMany
-	@Size(min=1)
+	@Size(min = 1)
 	@NotNull
 	private List<Author> authors = new ArrayList<>();
+	@NotNull
+	private Calendar releaseDate;
+
+	public Calendar getReleaseDate() {
+		return releaseDate;
+	}
+
+	public void setReleaseDate(Calendar releaseDate) {
+		this.releaseDate = releaseDate;
+	}
 
 	public Integer getId() {
 		return id;
@@ -83,15 +95,15 @@ public class Book {
 	public void setPrice(BigDecimal price) {
 		this.price = price;
 	}
-	
-	public void add(Author author){
+
+	public void add(Author author) {
 		authors.add(author);
 	}
 
 	public List<Author> getAuthors() {
 		return authors;
 	}
-	
+
 	public void setAuthors(List<Author> authors) {
 		this.authors = authors;
 	}
