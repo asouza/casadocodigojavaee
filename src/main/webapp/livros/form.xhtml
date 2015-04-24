@@ -1,8 +1,9 @@
 <html xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
-	xmlns="http://www.w3.org/1999/xhtml">
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
 <h:body>
-	<h:messages/>
+	<h:messages />
 	<h:form>
 		<div>
 			<h:outputLabel>Titulo</h:outputLabel>
@@ -15,7 +16,7 @@
 		</div>
 		<div>
 			<h:outputLabel>Número de páginas- #{msg.teste}</h:outputLabel>
-			<h:inputText value="#{adminBooksBean.product.numberOfPages}"/>
+			<h:inputText value="#{adminBooksBean.product.numberOfPages}" />
 		</div>
 		<div>
 			<h:outputLabel>Preço</h:outputLabel>
@@ -23,15 +24,14 @@
 		</div>
 		<div>
 			<h:outputLabel>Data de lançamento</h:outputLabel>
-			<h:inputText value="#{adminBooksBean.product.releaseDate}">
-				<f:convertDateTime pattern="yyyy-MM-dd"/>
-			</h:inputText>
+			<h:inputText value="#{adminBooksBean.product.releaseDate}" pt:type="date"/>							
 		</div>
 		<div>
 			<h:outputLabel>Autores</h:outputLabel>
-			<h:selectManyListbox value="#{adminBooksBean.product.authors}" converter="genericListConverter">
+			<h:selectManyListbox value="#{adminBooksBean.product.authors}"
+				converter="genericListConverter">
 				<f:selectItems value="#{authorsList.get()}" var="author"
-					itemLabel="#{author.name}" itemValue="#{author}"/>
+					itemLabel="#{author.name}" itemValue="#{author}" />
 			</h:selectManyListbox>
 		</div>
 		<h:commandButton value="Gravar" action="#{adminBooksBean.save}" />
