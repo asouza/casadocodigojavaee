@@ -20,8 +20,9 @@ public class CalendarConverter implements Converter{
 
 	@Override
 	public Object getAsObject(FacesContext context, UIComponent component,
-			String value) {
+			String value) {		
 		Date date = (Date) originalConverter.getAsObject(context, component, value);
+		if(date == null) return null;
 		Calendar newCalendar = Calendar.getInstance();
 		newCalendar.setTime(date);	
 		System.out.println("Calendar definido");
