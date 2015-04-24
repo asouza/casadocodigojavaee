@@ -4,6 +4,11 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
 	
 	<application>
-		<message-bundle>jsf_messages</message-bundle>		
+		<message-bundle>jsf_messages</message-bundle>
+		<resource-bundle>
+			<base-name>messages</base-name>
+			<var>msg</var>
+		</resource-bundle>		
 	</application>
+	
 </faces-config>		
