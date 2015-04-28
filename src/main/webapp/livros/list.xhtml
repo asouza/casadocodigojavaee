@@ -19,6 +19,10 @@
 					#{author.name}|					
 				</ui:repeat>
 			</h:column>
+			<h:column>
+				<f:facet name="header">Imagem</f:facet>
+				<h:graphicImage value="/#{book.coverPath}"/>
+			</h:column>
 		</h:dataTable>
 	</h:body>
 </html>

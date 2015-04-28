@@ -4,7 +4,7 @@
 	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
 <h:body>
 	<h:messages />
-	<h:form>
+	<h:form enctype="multipart/form-data">
 		<div>
 			<h:outputLabel>Titulo</h:outputLabel>
 			<h:inputText value="#{adminBooksBean.product.title}" label="titulo"/>
@@ -15,7 +15,7 @@
 				value="#{adminBooksBean.product.description}" />
 		</div>
 		<div>
-			<h:outputLabel>Número de páginas- #{msg.teste}</h:outputLabel>
+			<h:outputLabel>Número de páginas</h:outputLabel>
 			<h:inputText value="#{adminBooksBean.product.numberOfPages}" />
 		</div>
 		<div>
@@ -33,6 +33,10 @@
 				<f:selectItems value="#{authorsList.get()}" var="author"
 					itemLabel="#{author.name}" itemValue="#{author}" />
 			</h:selectManyListbox>
+		</div>
+		<div>
+			<h:outputLabel value="Capa do livro"/>
+			<h:inputFile id="cover" value="#{adminBooksBean.cover}" label="Capa do livro"/>
 		</div>
 		<h:commandButton value="Gravar" action="#{adminBooksBean.save}" />
 	</h:form>
