@@ -13,8 +13,8 @@ import javax.persistence.Id;
 
 import org.picketbox.util.StringUtil;
 
-@FacesConverter("entityListConverter")
-public class EntityListConverter implements Converter {
+@FacesConverter("entityConverter")
+public class EntityConverter implements Converter {
 
 	@Override
 	public Object getAsObject(FacesContext context, UIComponent component,

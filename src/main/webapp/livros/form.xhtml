@@ -29,7 +29,7 @@
 		<div>
 			<h:outputLabel>Autores</h:outputLabel>
 			<h:selectManyListbox value="#{adminBooksBean.product.authors}"
-				converter="entityListConverter">
+				converter="entityConverter">
 				<f:selectItems value="#{authorsList.get()}" var="author"
 					itemLabel="#{author.name}" itemValue="#{author}" />
 			</h:selectManyListbox>
