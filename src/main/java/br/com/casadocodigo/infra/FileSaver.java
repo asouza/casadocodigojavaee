@@ -18,11 +18,11 @@ public class FileSaver {
 	private static final String FILENAME_KEY = "filename=";
 
 	public String write(String baseFolder, Part multipartFile) {
-		String realPath = request.getServletContext().getRealPath(
+		String serverPath = request.getServletContext().getRealPath(
 				"/" + baseFolder);
 		String fileName = extractFilename(multipartFile
 				.getHeader(CONTENT_DISPOSITION));
-		String path = realPath + "/" + fileName;
+		String path = serverPath + "/" + fileName;
 		 try {
 			multipartFile.write(path);
 		} catch (IOException e) {
