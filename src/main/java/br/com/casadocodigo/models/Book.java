@@ -42,14 +42,14 @@ public class Book {
 	private List<Author> authors = new ArrayList<>();
 	@NotNull
 	private Calendar releaseDate;
-	private String coverPath;
+	private String summaryPath;
 
-	public String getCoverPath() {
-		return coverPath;
+	public String getSummaryPath() {
+		return summaryPath;
 	}
 
-	public void setCoverPath(String coverPath) {
-		this.coverPath = coverPath;
+	public void setSummaryPath(String coverPath) {
+		this.summaryPath = coverPath;
 	}
 
 	public Calendar getReleaseDate() {

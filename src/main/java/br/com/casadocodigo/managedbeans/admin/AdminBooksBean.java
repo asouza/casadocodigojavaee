@@ -26,24 +26,28 @@ public class AdminBooksBean {
 	private List<String> selectedAuthorsIds = new ArrayList<>();
 	@Inject
 	private MessagesHelper messagesHelper;
-	private Part cover;
+	private Part summary;
 	@Inject
 	private FileSaver fileSaver;
 
-	public void setCover(Part cover) {
-		this.cover = cover;
+	public void setSummary(Part cover) {
+		this.summary = cover;
 	}
 	
-	public Part getCover() {
-		return cover;
+	public Part getSummary() {
+		return summary;
 	}
 
 	@Transactional
 	public String save(){
-		populateBookAuthor();		
-		String coverPath = fileSaver.write("covers", cover);
 		
-		product.setCoverPath(coverPath);		
+		System.out.println(summary.getName() + ";" 
+				+summary.getHeader("content-disposition"));
+		
+		populateBookAuthor();		
+		String coverPath = fileSaver.write("covers", summary);
+		
+		product.setSummaryPath(coverPath);		
 		productDAO.save(product);
 		
 		messagesHelper.addFlash(new FacesMessage("Livro gravado com sucesso"));
