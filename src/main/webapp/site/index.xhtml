@@ -98,7 +98,7 @@
 	<section id="index-section" class="container middle">
 		<ul id="home-highlight-collection">
 			<ui:repeat var="book" value="#{homeBean.lastReleases()}">
-				<li class="col-left"><a href="/products/livro-plsql"
+				<li class="col-left"><a href="#{request.contextPath}/site/detalhe.xhtml?id=#{book.id}"
 					class="block clearfix"> <img width="170" height="240"
 					src="#{book.coverPath}"
 					alt=" #{book.title}" title="#{book.title}"/>
@@ -114,7 +114,7 @@
 		<ul class="clearfix book-collection">
 
 			<ui:repeat var="book" value="#{homeBean.olderBooks()}">
-			<li><a href="/products/livro-laravel-php" class="block clearfix">
+			<li><a href="#{request.contextPath}/site/detalhe.xhtml?id=#{book.id}" class="block clearfix">
 					<h2 class="product-title">#{book.title}</h2> <img width="143"
 					height="202"
 					src="#{book.coverPath}"
