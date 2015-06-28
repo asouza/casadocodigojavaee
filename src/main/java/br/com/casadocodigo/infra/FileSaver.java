@@ -4,37 +4,35 @@ import java.io.IOException;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.Part;
+
+import com.amazonaws.AmazonClientException;
+import com.amazonaws.services.s3.AmazonS3Client;
+import com.amazonaws.services.s3.model.ObjectMetadata;
 
 @RequestScoped
 public class FileSaver {
 
-	@Inject
-	private HttpServletRequest request;
-
 	private static final String CONTENT_DISPOSITION = "content-disposition";
 
 	private static final String FILENAME_KEY = "filename=";
+	
+	@Inject
+	private AmazonS3Client s3;	
 
 	public String write(String baseFolder, Part multipartFile) {
-		String serverPath = request.getServletContext().getRealPath(
-				"/" + baseFolder);
 		String fileName = extractFilename(multipartFile
 				.getHeader(CONTENT_DISPOSITION));
-		String path = serverPath + "/" + fileName;
-		 try {
-			multipartFile.write(path);
-		} catch (IOException e) {
+		try {
+			s3.putObject("casadocodigo", fileName,
+					multipartFile.getInputStream(), new ObjectMetadata());
+			return "http://localhost:9444/s3/casadocodigo/"+fileName+"?noAuth=true";
+		} catch (AmazonClientException | IOException e) {
 			throw new RuntimeException(e);
 		}
-		return baseFolder + "/" + fileName;
 	}
 
 	private String extractFilename(String contentDisposition) {
-		// trecho retirado do SpringMVC
-		// https://github.com/spring-projects/spring-framework/blob/73e8021e5946aa3ae949e766d3c509e2d8f782a7/spring-web/src/main/java/org/springframework/web/multipart/support/StandardMultipartHttpServletRequest.java
-
 		if (contentDisposition == null) {
 			return null;
 		}
