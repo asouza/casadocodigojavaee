@@ -1,7 +1,8 @@
 <html xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 <!--<![endif]-->
 <head>
   <meta charset="utf-8"/>
@@ -96,33 +97,15 @@
 
 	<section id="index-section" class="container middle">
 		<ul id="home-highlight-collection">
-
-			<li class="col-left"><a href="/products/livro-plsql"
-				class="block clearfix"> <img width="170" height="240"
-					src="//cdn.shopify.com/s/files/1/0155/7645/products/plsql-featured_medium.png?v=1434740236"
-					alt=" Livro de PL/SQL" title=" Livro de PL/SQL"/>
-				<h2 class="product-title">Banco de Dados PL/SQL</h2> <small
-					class="buy-button">Lan&#231;amento!</small>
-			</a></li>
-
-			<li class="col-right"><a href="/products/livro-css-eficiente"
-				class="block clearfix"> <img width="170" height="240"
-					src="//cdn.shopify.com/s/files/1/0155/7645/products/css-eficiente-featured_medium.png?v=1435245145"
-					alt=" Livro de CSS Eficiente e boas pr&#225;ticas web"
-					title=" Livro de CSS Eficiente e boas pr&#225;ticas web"/>
-				<h2 class="product-title">CSS Eficiente</h2> <small
-					class="buy-button">Lan&#231;amento!!!</small>
-			</a></li>
-
-			<li class="col-left"><a href="/products/livro-games-android"
-				class="block clearfix"> <img width="170" height="240"
-					src="//cdn.shopify.com/s/files/1/0155/7645/products/games-android-featured_medium.png?v=1433544805"
-					alt=" Livro de Jogos Android com classes nativas"
-					title=" Livro de Jogos Android com classes nativas"/>
-				<h2 class="product-title">Jogos Android com classes nativas</h2> <small
-					class="buy-button">Lan&#231;amento!</small>
-			</a></li>
-
+			<ui:repeat var="book" value="#{homeBean.lastReleases()}">
+				<li class="col-left"><a href="/products/livro-plsql"
+					class="block clearfix"> <img width="170" height="240"
+					src="#{book.coverPath}"
+					alt=" #{book.title}" title="#{book.title}"/>
+					<h2 class="product-title">#{book.title}</h2> <small
+						class="buy-button">Lan&#231;amento!</small></a>
+				</li>
+			</ui:repeat>
 		</ul>
 
 		<h1 class="cdc-call">Últimos dias com os preços promocionais.
@@ -130,87 +113,16 @@
 
 		<ul class="clearfix book-collection">
 
+			<ui:repeat var="book" value="#{homeBean.olderBooks()}">
 			<li><a href="/products/livro-laravel-php" class="block clearfix">
-					<h2 class="product-title">Laravel Framework</h2> <img width="143"
+					<h2 class="product-title">#{book.title}</h2> <img width="143"
 					height="202"
-					src="//cdn.shopify.com/s/files/1/0155/7645/products/laravel-miniature.png?v=1432129740"
-					alt=" Livro de Laravel Framework e PHP"
-					title=" Livro de Laravel Framework e PHP"/><small
+					src="#{book.coverPath}"
+					alt="#{book.title}"
+					title="#{book.title}"/><small
 					class="buy-button">Compre</small>
 			</a></li>
-			<li><a href="/products/livro-laravel-php" class="block clearfix">
-					<h2 class="product-title">Laravel Framework</h2> <img width="143"
-					height="202"
-					src="//cdn.shopify.com/s/files/1/0155/7645/products/laravel-miniature.png?v=1432129740"
-					alt=" Livro de Laravel Framework e PHP"
-					title=" Livro de Laravel Framework e PHP"/><small
-					class="buy-button">Compre</small>
-			</a></li>
-			<li><a href="/products/livro-laravel-php" class="block clearfix">
-					<h2 class="product-title">Laravel Framework</h2> <img width="143"
-					height="202"
-					src="//cdn.shopify.com/s/files/1/0155/7645/products/laravel-miniature.png?v=1432129740"
-					alt=" Livro de Laravel Framework e PHP"
-					title=" Livro de Laravel Framework e PHP"/><small
-					class="buy-button">Compre</small>
-			</a></li>
-			<li><a href="/products/livro-laravel-php" class="block clearfix">
-					<h2 class="product-title">Laravel Framework</h2> <img width="143"
-					height="202"
-					src="//cdn.shopify.com/s/files/1/0155/7645/products/laravel-miniature.png?v=1432129740"
-					alt=" Livro de Laravel Framework e PHP"
-					title=" Livro de Laravel Framework e PHP"/><small
-					class="buy-button">Compre</small>
-			</a></li>
-			<li><a href="/products/livro-laravel-php" class="block clearfix">
-					<h2 class="product-title">Laravel Framework</h2> <img width="143"
-					height="202"
-					src="//cdn.shopify.com/s/files/1/0155/7645/products/laravel-miniature.png?v=1432129740"
-					alt=" Livro de Laravel Framework e PHP"
-					title=" Livro de Laravel Framework e PHP"/><small
-					class="buy-button">Compre</small>
-			</a></li>
-			<li><a href="/products/livro-laravel-php" class="block clearfix">
-					<h2 class="product-title">Laravel Framework</h2> <img width="143"
-					height="202"
-					src="//cdn.shopify.com/s/files/1/0155/7645/products/laravel-miniature.png?v=1432129740"
-					alt=" Livro de Laravel Framework e PHP"
-					title=" Livro de Laravel Framework e PHP"/><small
-					class="buy-button">Compre</small>
-			</a></li>
-			<li><a href="/products/livro-laravel-php" class="block clearfix">
-					<h2 class="product-title">Laravel Framework</h2> <img width="143"
-					height="202"
-					src="//cdn.shopify.com/s/files/1/0155/7645/products/laravel-miniature.png?v=1432129740"
-					alt=" Livro de Laravel Framework e PHP"
-					title=" Livro de Laravel Framework e PHP"/><small
-					class="buy-button">Compre</small>
-			</a></li>
-			<li><a href="/products/livro-laravel-php" class="block clearfix">
-					<h2 class="product-title">Laravel Framework</h2> <img width="143"
-					height="202"
-					src="//cdn.shopify.com/s/files/1/0155/7645/products/laravel-miniature.png?v=1432129740"
-					alt=" Livro de Laravel Framework e PHP"
-					title=" Livro de Laravel Framework e PHP"/><small
-					class="buy-button">Compre</small>
-			</a></li>
-			<li><a href="/products/livro-laravel-php" class="block clearfix">
-					<h2 class="product-title">Laravel Framework</h2> <img width="143"
-					height="202"
-					src="//cdn.shopify.com/s/files/1/0155/7645/products/laravel-miniature.png?v=1432129740"
-					alt=" Livro de Laravel Framework e PHP"
-					title=" Livro de Laravel Framework e PHP"/><small
-					class="buy-button">Compre</small>
-			</a></li>
-			<li><a href="/products/livro-laravel-php" class="block clearfix">
-					<h2 class="product-title">Laravel Framework</h2> <img width="143"
-					height="202"
-					src="//cdn.shopify.com/s/files/1/0155/7645/products/laravel-miniature.png?v=1432129740"
-					alt=" Livro de Laravel Framework e PHP"
-					title=" Livro de Laravel Framework e PHP"/><small
-					class="buy-button">Compre</small>
-			</a></li>
-
+			</ui:repeat>
 		</ul>
 
 		<h2 class="cdc-call">Diferenciais da Casa do Código</h2>
