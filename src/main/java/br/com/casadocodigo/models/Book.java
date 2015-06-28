@@ -43,6 +43,15 @@ public class Book {
 	@NotNull
 	private Calendar releaseDate;
 	private String summaryPath;
+	private String coverPath;
+
+	public String getCoverPath() {
+		return coverPath;
+	}
+
+	public void setCoverPath(String coverPath) {
+		this.coverPath = coverPath;
+	}
 
 	public String getSummaryPath() {
 		return summaryPath;

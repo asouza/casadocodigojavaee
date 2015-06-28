@@ -13,37 +13,48 @@ import br.com.casadocodigo.models.Book;
 
 @Model
 public class AdminBooksBean {
-	
+
 	private Book product = new Book();
 	@Inject
 	private BookDAO productDAO;
 	@Inject
 	private MessagesHelper messagesHelper;
 	private Part summary;
+	private Part cover;
 	@Inject
 	private FileSaver fileSaver;
 
 	public void setSummary(Part cover) {
 		this.summary = cover;
 	}
-	
+
 	public Part getSummary() {
 		return summary;
 	}
 
+	public Part getCover() {
+		return cover;
+	}
+
+	public void setCover(Part cover) {
+		this.cover = cover;
+	}
+
 	@Transactional
-	public String save(){
-		String coverPath = fileSaver.write("summaries", summary);
-		
-		product.setSummaryPath(coverPath);		
+	public String save() {
+		String summaryPath = fileSaver.write("summaries", summary);
+		String coverPath = fileSaver.write("covers", cover);
+
+		product.setSummaryPath(summaryPath);
+		product.setCoverPath(coverPath);
 		productDAO.save(product);
-		
+
 		messagesHelper.addFlash(new FacesMessage("Livro gravado com sucesso"));
 		return "/livros/list?faces-redirect=true";
 	}
-	
+
 	public Book getProduct() {
 		return product;
 	}
-	
+
 }

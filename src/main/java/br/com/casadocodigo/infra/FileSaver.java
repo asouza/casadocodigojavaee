@@ -24,7 +24,7 @@ public class FileSaver {
 		String fileName = extractFilename(multipartFile
 				.getHeader(CONTENT_DISPOSITION));
 		try {
-			s3.putObject("casadocodigo", fileName,
+			s3.putObject("casadocodigo/"+baseFolder, fileName,
 					multipartFile.getInputStream(), new ObjectMetadata());
 			return "http://localhost:9444/s3/casadocodigo/"+fileName+"?noAuth=true";
 		} catch (AmazonClientException | IOException e) {
