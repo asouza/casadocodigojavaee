@@ -210,7 +210,7 @@
         
     
     <p></p>
-    <p>Data de publicação: #{productDetailBean.book.releaseDate.time}</p>
+    <p>Data de publicação: #{formatter.dateFormat(productDetailBean.book.releaseDate)}</p>
     <p>Encontrou um erro? <a href='/submissao-errata' target='_blank'>Submeta uma errata</a></p>
   </section>
 </div>
