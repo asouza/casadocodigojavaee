@@ -43,7 +43,7 @@
     <link href="//cdn.shopify.com/s/files/1/0155/7645/t/177/assets/products.css?11981592617154272979" rel="stylesheet" type="text/css"  media="all"  />
 <link rel="canonical" href="http://www.casadocodigo.com.br/products/livro-css-eficiente" />
 </head>
-<body class="product">
+<body class="cart">
   <header id="layout-header">
     <div class="clearfix container">
         <a href="/" id="logo">
@@ -132,92 +132,67 @@
         
     </ul>
   </nav>
-<article id="livro-css-eficiente">
-  <header id="product-highlight" class="clearfix">
-    <div id="product-overview" class="container">
-      <img width="280px" height="395px" src="#{productDetailBean.book.coverPath}" class="product-featured-image" alt="CSS Eficiente: Técnicas e ferramentas que fazem a diferença nos seus estilos"/>
-      <h1 class="product-title">#{productDetailBean.book.title}</h1>
-      <p class="product-author">
-        <span class="product-author-link">
-          
-            <ui:repeat var="author" value="#{productDetailBean.book.authors}">
-            	#{author.name}|
-            </ui:repeat>
-          
-        </span>
-      </p>	
-	
-    <p class="book-description">#{productDetailBean.book.description}</p>
-    </div>
-  </header>
 
+<section class="container middle">
+  <h2 id="cart-title">Seu carrinho de compras</h2>
   
-  <section class="buy-options clearfix">  
-  <form jsf:id="form" method="post" class="container">
-    <ul id="variants" class="clearfix">
-    	  <li class="buy-option">
-            <input type="radio" name="id" class="variant-radio" id="product-variant-#{productDetailBean.book.id}" value="#{productDetailBean.book.id}"  checked="checked"  />
-            <label  class="variant-label" for="product-variant-#{productDetailBean.book.id}">
-              E-book + Impresso 
-              
-            </label>
-            <small class="compare-at-price">R$ #{productDetailBean.book.price}</small>
-            <p class="variant-price">R$ #{productDetailBean.book.price}</p>
-          </li>           
-    </ul>
-    
-      <button type="submit" jsf:action="#{shoppingCartBean.add(productDetailBean.book.id)}" class="submit-image icon-basket-alt" title="#{productDetailBean.book.title}"></button>
+  <form jsf:id="cartForm" method="post">
+    <table id="cart-table">
+      <colgroup>
+        <col class="item-col"/>
+        <col class="item-price-col"/>
+        <col class="item-quantity-col"/>
+        <col class="line-price-col"/>
+        <col class="delete-col"/>
+      </colgroup>
+      <thead>
+        <tr>
+          <th class="cart-img-col"></th>
+          <th width="65%">Item</th>
+          <th width="10%">Preço</th>
+          <th width="10%">Quantidade</th>
+          <th width="10%">Total</th>
+          <th width="5%"></th>
+        </tr>
+      </thead>
+      <tbody>
+      <ui:repeat var="item" value="#{shoppingCart.list}">
+	        <tr>
+	          <td class="cart-img-col"><img src="#{item.book.coverPath}" width="71px" height="100px"/></td><td class="item-title">#{item.book.title}</td>
+	          <td class="numeric-cell">R$ #{item.price}</td>
+	          <td class="quantity-input-cell"><input type="number" min="0" readonly="readonly" id="updates_4082273665" name="updates[4082273665]" value="#{shoppingCart.getQuantity(item)}"/></td>
+	          <td class="numeric-cell">R$ #{shoppingCart.getTotal(item)}</td>
+	          
+	          <td class="remove-item"><a jsf:action="#{shoppingCartBean.remove(item.bookId)}"><img src="//cdn.shopify.com/s/files/1/0155/7645/t/177/assets/excluir.png?11981592617154272979" alt="Excluir" title="Excluir" /></a></td>
+	        </tr>
+      </ui:repeat>
+        
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="3"><input type="submit" class="checkout" name="checkout" value="Finalizar compra " id="checkout"/></td>
+          <td class="quantity-input-cell"><input type="submit" class="update-cart" name="update" value=""/></td>
+          <td class="numeric-cell">R$ #{shoppingCart.total}</td><td></td>
+        </tr>
+      </tfoot>
+    </table>
     
   </form>
   
-</section>
+ 
   
-      <div class="container">
+  <h2>Você já conhece os outros livros da Casa do Código?</h2>
+  <ul id="collection" class="related-books">          
+      <li class="col-left">
+        <a href="/products/livro-plsql" class="block clearfix book-suggest" data-book="PL/SQL: Domine a linguagem do banco de dados Oracle">
+          <img width="113px" height="160px" src="//cdn.shopify.com/s/files/1/0155/7645/products/plsql-featured_compact.png?v=1434740236" alt="PL/SQL: Domine a linguagem do banco de dados Oracle"/>
+        </a>
+      </li>          
+  </ul>
   
-  <h2 class="summary-call section-title">Leia este livro e...</h2>
-  <section class="summary">
-    <ul>
-      
-      	<!-- aqui poderia ter um real cadastro do sumário -->
-        <li><h3> Seçao 1</h3></li>      
-        <li><h3> Seçao 2</h3></li>      
-        <li><h3> Seçao 3</h3></li>      
-        <li><h3> Seçao 4</h3></li>      
-        <li><h3> Seçao 5</h3></li>      
-        <li><h3> Seçao 6</h3></li>      
-        <li><h3> Seçao 7</h3></li>      
-      	<li><h3>E muito mais... <a href='#{productDetailBean.book.summaryPath}'>veja o sumário</a>.</h3></li>
-    </ul>
-  </section>
-  
-  <section class="author product-detail">
-    <h2 class="section-title">
-      
-         <ui:repeat var="author" value="#{productDetailBean.book.authors}">
-            #{author.name}|
-         </ui:repeat>
-      
-    </h2>
-    <span>
-      
-        <p class="book-description"><img class="author-image" src="" alt="" style="float: left; margin-right: 10px; "/><a>Descricao sobre os autores</a>.</p>
-      
-    </span>
-  </section>
-  
-  <section class="data product-detail">
-    <h2 class="section-title">Dados do livro:</h2>
-    <p>Número de páginas: <span>#{productDetailBean.book.numberOfPages}</span></p>
-        
-    
-    <p></p>
-    <p>Data de publicação: #{formatter.dateFormat(productDetailBean.book.releaseDate)}</p>
-    <p>Encontrou um erro? <a href='/submissao-errata' target='_blank'>Submeta uma errata</a></p>
-  </section>
-</div>
+  <h2><a href="http://www.casadocodigo.com.br">Veja todos os livros que publicamos!</a></h2>
+</section> 
 
-  
-</article>
 
   <footer id="layout-footer">
     <div class="clearfix container">
