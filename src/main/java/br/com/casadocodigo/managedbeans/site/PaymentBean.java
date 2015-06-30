@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 
 import javax.enterprise.inject.Model;
 import javax.inject.Inject;
+import javax.ws.rs.ClientErrorException;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
@@ -23,12 +24,14 @@ public class PaymentBean {
 
 		Client client = ClientBuilder.newClient();
 		PaymentData paymentData = new PaymentData(total);
-		String result = client.target(uriToPay).request()
+		try {
+			client.target(uriToPay).request()
 				.post(Entity.json(paymentData), String.class);
+			return "/site/pagamento/ok.xhtml?faces-redirect=true";
+		} catch (ClientErrorException exception){
+			return "/site/pagamento/falha.xhtml?faces-redirect=true";
+		}
 
 		
-		System.out.println(result);
-		
-		return "/site/pagamento/ok.xhtml?faces-redirect=true";
 	}
 }
