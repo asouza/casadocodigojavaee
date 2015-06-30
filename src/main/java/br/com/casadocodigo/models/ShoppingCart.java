@@ -37,7 +37,7 @@ public class ShoppingCart implements Serializable{
 	}
 
 	public Collection<ShoppingItem> getList() {
-		return items.keySet();
+		return new ArrayList<>(items.keySet());
 	}
 
 	public BigDecimal getTotal(ShoppingItem item) {

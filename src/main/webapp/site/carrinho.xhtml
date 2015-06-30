@@ -136,7 +136,7 @@
 <section class="container middle">
   <h2 id="cart-title">Seu carrinho de compras</h2>
   
-  <form jsf:id="cartForm" method="post">
+  <form jsf:id="cartForm" jsf:prependId="false" method="post">
     <table id="cart-table">
       <colgroup>
         <col class="item-col"/>
@@ -170,7 +170,7 @@
       </tbody>
       <tfoot>
         <tr>
-          <td colspan="3"><input type="submit" class="checkout" name="checkout" value="Finalizar compra " id="checkout"/></td>
+          <td colspan="3"><input type="submit" jsf:id="checkout" jsf:action="#{paymentBean.checkout}" class="checkout" jsf:name="checkout" value="Finalizar compra "/></td>
           <td class="quantity-input-cell"><input type="submit" class="update-cart" name="update" value=""/></td>
           <td class="numeric-cell">R$ #{shoppingCart.total}</td><td></td>
         </tr>
