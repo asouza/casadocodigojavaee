@@ -136,7 +136,7 @@
 <section class="container middle">
   <h2 id="cart-title">Seu carrinho de compras</h2>
   
-  <form jsf:id="cartForm" jsf:prependId="false" method="post">
+  
     <table id="cart-table">
       <colgroup>
         <col class="item-col"/>
@@ -156,28 +156,31 @@
         </tr>
       </thead>
       <tbody>
-      <ui:repeat var="item" value="#{shoppingCart.list}">
-	        <tr>
-	          <td class="cart-img-col"><img src="#{item.book.coverPath}" width="71px" height="100px"/></td><td class="item-title">#{item.book.title}</td>
-	          <td class="numeric-cell">R$ #{item.price}</td>
-	          <td class="quantity-input-cell"><input type="number" min="0" readonly="readonly" id="updates_4082273665" name="updates[4082273665]" value="#{shoppingCart.getQuantity(item)}"/></td>
-	          <td class="numeric-cell">R$ #{shoppingCart.getTotal(item)}</td>
-	          
-	          <td class="remove-item"><a jsf:action="#{shoppingCartBean.remove(item.bookId)}"><img src="//cdn.shopify.com/s/files/1/0155/7645/t/177/assets/excluir.png?11981592617154272979" alt="Excluir" title="Excluir" /></a></td>
-	        </tr>
-      </ui:repeat>
-        
+      <form jsf:id="cartForm" jsf:prependId="false" method="post">
+	      <ui:repeat var="item" value="#{shoppingCart.list}">
+		        <tr>
+		          <td class="cart-img-col"><img src="#{item.book.coverPath}" width="71px" height="100px"/></td><td class="item-title">#{item.book.title}</td>
+		          <td class="numeric-cell">R$ #{item.price}</td>
+		          <td class="quantity-input-cell"><input type="number" min="0" readonly="readonly" id="updates_4082273665" name="updates[4082273665]" value="#{shoppingCart.getQuantity(item)}"/></td>
+		          <td class="numeric-cell">R$ #{shoppingCart.getTotal(item)}</td>
+		          
+		          <td class="remove-item"><a jsf:action="#{shoppingCartBean.remove(item.bookId)}"><img src="//cdn.shopify.com/s/files/1/0155/7645/t/177/assets/excluir.png?11981592617154272979" alt="Excluir" title="Excluir" /></a></td>
+		        </tr>
+	      </ui:repeat>
+       </form>
       </tbody>
-      <tfoot>
-        <tr>
-          <td colspan="3"><input type="submit" jsf:id="checkout" jsf:action="#{paymentBean.checkout}" class="checkout" jsf:name="checkout" value="Finalizar compra "/></td>
-          <td class="quantity-input-cell"><input type="submit" class="update-cart" name="update" value=""/></td>
-          <td class="numeric-cell">R$ #{shoppingCart.total}</td><td></td>
-        </tr>
-      </tfoot>
+      <form method="post" action="">
+	      <tfoot>
+	        <tr>
+	          <td colspan="3"><input type="submit" jsf:id="checkout" jsf:action="#{paymentBean.checkout}" class="checkout" jsf:name="checkout" value="Finalizar compra "/></td>
+	          <td class="quantity-input-cell"><input type="submit" class="update-cart" name="update" value=""/></td>
+	          <td class="numeric-cell">R$ #{shoppingCart.total}</td><td></td>
+	        </tr>
+	      </tfoot>
+      </form>
     </table>
     
-  </form>
+  
   
  
   
