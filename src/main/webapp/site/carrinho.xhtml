@@ -169,7 +169,7 @@
 	      </ui:repeat>
        </form>
       </tbody>
-      <form method="post" action="">
+      <form method="post" action="${request.contextPath}/services/payment">
 	      <tfoot>
 	        <tr>
 	          <td colspan="3"><input type="submit" jsf:id="checkout" jsf:action="#{paymentBean.checkout}" class="checkout" jsf:name="checkout" value="Finalizar compra "/></td>
