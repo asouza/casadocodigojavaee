@@ -46,19 +46,17 @@ public class PaymentResource {
 						.post(Entity.json(paymentData), String.class);
 
 				URI redirectURI = UriBuilder
-						.fromUri(ctx.getContextPath()+"/site/index.xhtml")
+						.fromUri(ctx.getContextPath() + "/site/index.xhtml")
 						.queryParam("msg", "Compra realizada com sucesso")
 						.build();
 
 				Response response = Response.seeOther(redirectURI).build();
 
 				ar.resume(response);
-				
-			} catch (ClientErrorException exception) {
+
+			} catch (Exception exception) {
 				exception.printStackTrace();
 				ar.resume(exception);
-			} catch (Exception e) {
-				ar.resume(e);
 			}
 		});
 	}
