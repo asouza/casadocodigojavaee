@@ -169,15 +169,13 @@
 	      </ui:repeat>
        </form>
       </tbody>
-      <form method="post" action="${request.contextPath}/services/payment">
 	      <tfoot>
 	        <tr>
-	          <td colspan="3"><input type="submit" jsf:id="checkout" jsf:action="#{paymentBean.checkout}" class="checkout" jsf:name="checkout" value="Finalizar compra "/></td>
-	          <td class="quantity-input-cell"><input type="submit" class="update-cart" name="update" value=""/></td>
+	          <td colspan="3"><a href="${request.contextPath}/site/checkout.xhtml" id="checkout" class="checkout">Finalizar compra </a></td>
+	          <td class="quantity-input-cell"><input type="submit" class="update-cart" disabled="disabled" name="update" value=""/></td>
 	          <td class="numeric-cell">R$ #{shoppingCart.total}</td><td></td>
 	        </tr>
 	      </tfoot>
-      </form>
     </table>
     
   

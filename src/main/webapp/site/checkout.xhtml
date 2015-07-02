@@ -1,0 +1,707 @@
+<html xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:o="http://omnifaces.org/ui">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, user-scalable=0"/>
+
+    <title>Casa do Codigo - Fechar pedido</title>
+
+    
+
+<!--[if lte IE 9]>
+<link href="//cdn.shopify.com/app/services/1557645/assets/8570485/checkout_stylesheet/v1-82b12fa351df7354d7b83c44b806404f-11981592617154272979/oldie" media="all" rel="stylesheet" />
+<![endif]-->
+
+<!--[if gt IE 9]><!-->
+  <link href="//cdn.shopify.com/app/services/1557645/assets/8570485/checkout_stylesheet/v1-82b12fa351df7354d7b83c44b806404f-11981592617154272979" media="all" rel="stylesheet" />
+
+<!--<![endif]-->
+
+<link href="//cdn.shopify.com/s/files/1/0155/7645/t/177/assets/checkout.scss.css?11981592617154272979" media="all" rel="stylesheet" />
+
+  </head>
+  <body>
+
+    <div class="header">
+  <div class="wrap">
+    <div class="shop">
+      <a href="http://www.casadocodigo.com.br">
+          <img alt="Casa do Codigo" class="shop__logo" src="//cdn.shopify.com/s/files/1/0155/7645/t/177/assets/checkout_logo.png?11981592617154272979" />
+
+      </a>
+    </div>
+  </div>
+  <i class="icon icon--lock"></i>
+  <div class="header__backdrop"></div>
+</div>
+
+    <div class="main">
+  <div class="order-summary-recap">
+    <ul class="product-list">
+    	<ui:repeat var="item" value="#{shoppingCart.list}">
+		    <li class="product product--has-image">
+		        <img alt="#{item.book.title}" class="product__image" src="#{item.book.coverPath}" width="150px" height="150px"/>
+		      <div class="product__info">
+		        <span class="product__info__name"><strong>#{item.book.title}</strong> × #{shoppingCart.getQuantity(item)}</span>
+		        <span class="product__info__description">E-book + Impresso</span>
+		      </div>
+		        <strong class="product__price">R$ #{shoppingCart.getTotal(item)}</strong>
+		    </li>
+	    </ui:repeat>
+	</ul>
+
+  </div>
+
+    <div class="alternative-payment-methods">
+      <div class="wrap">
+        <span>Pagamento com:</span>
+        <a class="alternative-payment-methods__btn paypal" href="https://checkout.shopify.com/1557645/checkouts/b6e41fa9bc053211b474172490936429/redirect_to_express"><img alt="paypal" src="//cdn.shopify.com/s/assets/checkout/icons/checkout-paypal-btn-en-a43290d474801bdb9d40bb04f79a2044.png" title="Paypal" /></a>
+         
+        <span class="or">OU</span>
+      </div>
+    </div>
+
+  <div class="wrap">
+    <div id="checkout" class="current-step-contact_information" data-session-storage="">
+      <div id="contact-information" class="section step step--current">
+  <div class="section__header">
+    <h3>Informações do cliente</h3>
+    <a class="section__edit-link" data-edit-contact-information="true" href="https://checkout.shopify.com/1557645/checkouts/b6e41fa9bc053211b474172490936429?step=contact_information">Editar</a>
+  </div>
+
+  <form accept-charset="UTF-8"  jsf:prependId="false" class="section__form js-shipping-address-with-selector" jsf:id="checkoutUserForm" method="post"><div style="display:none"></div>    
+
+      <div class="fieldset" data-email-check='#checkout_email_suggestion'>
+        <div class="field field--required">
+          <label for="checkout_email">E-mail</label>
+          <input autocapitalize="off" autocomplete="shipping email" jsf:id="email" data-autofocus="true" jsf:value="#{checkoutBean.systemUser.email}" placeholder="E-mail" size="30" spellcheck="false" type="email"/>
+			<o:messages for="email" var="message">
+			    <p class="field_error-message">#{message.summary}</p>
+			</o:messages>          
+</div>        <div class="field-group field-group--has-subfields hidden" id="checkout_email_suggestion">
+          <div class="field">
+            <div class="field__inner field__inner--horizontal-padding">
+              <p>Você quis dizer <a href="#"></a>?</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <h5>Endereço de entrega</h5>
+
+    
+
+  <div class="fieldset" id="shipping-address" data-shipping-address="">
+    <div class="field field--optional">
+      <label for="checkout_shipping_address_first_name">Nome</label>
+      <input autocomplete="shipping given-name" jsf:id="name" jsf:value="#{checkoutBean.systemUser.firstName}" placeholder="Nome" size="30" type="text" />
+			<o:messages for="name" var="message">
+			    <p class="field_error-message">#{message.summary}</p>
+			</o:messages>      
+</div>
+    <div class="field field--required">
+      <label for="checkout_shipping_address_last_name">Sobrenome</label>
+      <input autocomplete="shipping family-name" jsf:id="lastName" jsf:value="#{checkoutBean.systemUser.lastName}" placeholder="Sobrenome" size="30" type="text" />
+			<o:messages for="lastName" var="message">
+			    <p class="field_error-message">#{message.summary}</p>
+			</o:messages>      
+</div>
+      <div class="field field--required">
+        <label for="checkout_shipping_address_company">CPF/CNPJ</label>
+        <input autocomplete="shipping organization" jsf:id="socialId" jsf:value="#{checkoutBean.systemUser.socialId}" placeholder="999.999.999-99" size="30" type="text" />
+        	<o:messages for="socialId" var="message">
+			    <p class="field_error-message">#{message.summary}</p>
+			</o:messages>
+</div>
+    <div class="field field--required">
+      <label for="checkout_shipping_address_address1">Endereço (com número)</label>
+      <input autocomplete="shipping address-line1" jsf:id="address" jsf:value="#{checkoutBean.systemUser.address}" placeholder="Endereço" size="30" type="text" />
+			<o:messages for="address" var="message">
+			    <p class="field_error-message">#{message.summary}</p>
+			</o:messages>      
+</div>
+
+    <div class="field field--required">
+      <label for="checkout_shipping_address_city">Cidade</label>
+      <input autocomplete="shipping locality" jsf:id="city" jsf:value="#{checkoutBean.systemUser.city}" placeholder="Cidade" size="30" type="text" />
+			<o:messages for="city" var="message">
+			    <p class="field_error-message">#{message.summary}</p>
+			</o:messages>      
+</div>
+    <div class="field field--required" data-country-section="1">
+      <label for="checkout_shipping_address_country">País</label>
+      <select jsf:value="#{checkoutBean.systemUser.country}" jsf:id="country" size="1">      	
+      	<f:selectItem itemValue="" itemLabel="Escolha o país"/>
+      	<f:selectItem itemValue="Portugal" itemLabel="Portugal"/>
+      	<f:selectItem itemValue="Brasil" itemLabel="Brasil"/>
+      	<f:selectItem itemValue="Africa do Sul" itemLabel="Africa do Sul"/>
+      	<f:selectItem itemValue="Argentina" itemLabel="Argentina"/>
+      	<f:selectItem itemValue="Colombia" itemLabel="Colombia"/>
+	</select>
+			<o:messages for="country" var="message">
+			    <p class="field_error-message">#{message.summary}</p>
+			</o:messages>	
+</div>
+    <div class="field field--required" data-province-section="1">
+      <label for="checkout_shipping_address_province">State</label>
+      <input autocomplete="shipping region" jsf:id="state" jsf:value="#{checkoutBean.systemUser.state}" placeholder="State" type="text" />
+			<o:messages for="state" var="message">
+			    <p class="field_error-message">#{message.summary}</p>
+			</o:messages>      
+</div>
+    <div class="field field--required" data-zip-section="1">
+      <label for="checkout_shipping_address_zip"> CEP</label>
+      <input autocomplete="shipping postal-code" jsf:id="postalCode" class="postal-code" jsf:value="#{checkoutBean.systemUser.postalCode}" placeholder="22290175" size="30" type="text" />
+			<o:messages for="postalCode" var="message">
+			    <p class="field_error-message">#{message.summary}</p>
+			</o:messages>      
+</div>
+      <div class="field field--hidden">
+        <label for="checkout_shipping_address_phone">Telefone</label>
+        <input autocomplete="shipping tel"  jsf:id="phone" jsf:value="#{checkoutBean.systemUser.phone}" placeholder="(99) 9999-9999" size="30" type="tel" />
+			<o:messages for="phone" var="message">
+			    <p class="field_error-message">#{message.summary}</p>
+			</o:messages>        
+</div>  </div>
+
+
+    <div class="call-to-action">
+
+      <input class="btn" name="commit" jsf:action="#{checkoutBean.checkout()}" type="submit" value="Continuar" />
+    </div>
+</form>
+  <div class="section__summary">
+    <p></p>
+    <p class="address">
+  
+</p>
+
+  </div>
+</div>
+
+
+        <div id="shipping-method" class="section step step--blank">
+  <div class="section__header">
+    <h3>Forma de envio</h3>
+    <a class="section__edit-link" href="https://checkout.shopify.com/1557645/checkouts/b6e41fa9bc053211b474172490936429?step=shipping_and_payment_method">Editar</a>
+  </div>
+
+
+    <div class="section__blank-slate">
+      <i class="closed-box"></i>
+      <p>Por favor, insira as informações de entrega.</p>
+    </div>
+
+  <div class="section__summary">
+  </div>
+</div>
+
+
+      <div id="payment" class="section step step--blank hidden">
+  <div class="section__header">
+    <h3>Forma de pagamento</h3>
+
+    <a class="section__edit-link" data-edit-payment="true" href="https://checkout.shopify.com/1557645/checkouts/b6e41fa9bc053211b474172490936429?step=shipping_and_payment_method">Editar</a>
+
+  </div>
+
+
+
+  <div class="section__form">
+    <form accept-charset="UTF-8" class="secure-form" method="post"><div style="display:none"><input name="utf8" type="hidden" value="&#x2713;" /></div>            
+      <div data-payment-subform="required">
+        <div class="fieldset">
+            <div class="field field--has-radio-button"  data-select-gateway="2760902">
+                <input autocomplete="off" checked="checked" id="checkout_payment_gateway_2760902" name="checkout[payment_gateway]" type="radio" value="2760902" />
+
+              <label class="label--full-width" for="checkout_payment_gateway_2760902">
+                  <i class="payment-method paypal"></i>
+</label>
+              <ul class="field__icon payment-methods" data-brand-icons-for-gateway="2760902">
+                    <li data-payment-icon="generic" class="payment-method generic selected">Credit Card</li>
+                      <li data-payment-icon="visa" class="payment-method visa">Visa</li>
+                      <li data-payment-icon="master" class="payment-method master">MasterCard</li>
+                      <li data-payment-icon="american-express" class="payment-method american-express">American Express</li>
+                      <li data-payment-icon="discover" class="payment-method discover">Discover</li>
+              </ul>
+            </div>
+
+            <div class="field field--has-radio-button"  data-select-gateway="6528965">
+                <input autocomplete="off" id="checkout_payment_gateway_6528965" name="checkout[payment_gateway]" type="radio" value="6528965" />
+
+              <label class="label--full-width" for="checkout_payment_gateway_6528965">
+                  <i class="payment-method pag_seguro"></i>
+</label>
+              <ul class="field__icon payment-methods" data-brand-icons-for-gateway="6528965">
+                    <li data-payment-icon="visa" class="payment-method visa">Visa</li>
+                    <li data-payment-icon="master" class="payment-method master">MasterCard</li>
+                    <li data-payment-icon="american-express" class="payment-method american-express">American Express</li>
+                    <li data-payment-icon="diners-club" class="payment-method diners-club">Diners Club</li>
+              </ul>
+            </div>
+
+                <div class="field-group field-group--has-subfields" data-subfields-for-gateway="6528965">
+                  <div class="field field--blank-slate">
+                    <i class="icon icon--offsite"></i>
+                    <p>Você será redirecionado para PagSeguro para concluir sua compra de forma segura.</p>
+                  </div>
+                </div>
+        </div>
+
+        <h5 data-billing-address="">Endereço de cobrança</h5>
+<div class="fieldset fieldset--billing-address" data-billing-address="">
+
+  <div class="field-group field-group--has-subfields" id="billing-address" data-billing-address-fields="">
+    
+      <div class="field field--optional">
+        <label for="checkout_billing_address_first_name">Nome</label>
+        <input autocomplete="billing given-name" data-persist="billing_address_first_name" id="checkout_billing_address_first_name" name="checkout[billing_address][first_name]" placeholder="Nome" size="30" type="text" />
+</div>
+      <div class="field field--required">
+        <label for="checkout_billing_address_last_name">Sobrenome</label>
+        <input autocomplete="billing family-name" data-persist="billing_address_last_name" id="checkout_billing_address_last_name" name="checkout[billing_address][last_name]" placeholder="Sobrenome" size="30" type="text" />
+</div>
+        <div class="field field--required">
+          <label for="checkout_billing_address_company">CPF/CNPJ</label>
+          <input autocomplete="shipping organization" data-persist="billing_address_company" id="checkout_billing_address_company" name="checkout[billing_address][company]" placeholder="999.999.999-99" size="30" type="text" />
+</div>
+      <div class="field field--required">
+        <label for="checkout_billing_address_address1">Endereço (com número)</label>
+        <input autocomplete="billing address-line1" data-persist="billing_address_address1" id="checkout_billing_address_address1" name="checkout[billing_address][address1]" placeholder="Endereço" size="30" type="text" />
+</div>
+        <div class="field field--optional">
+          <label for="checkout_billing_address_address2">Casa, apto. etc.</label>
+          <input autocomplete="shipping address-line2" data-persist="billing_address_address2" id="checkout_billing_address_address2" name="checkout[billing_address][address2]" placeholder="Casa, apto. etc. (opcional)" size="30" type="text" />
+</div>
+      <div class="field field--required">
+        <label for="checkout_billing_address_city">Cidade</label>
+        <input autocomplete="billing locality" data-persist="billing_address_city" id="checkout_billing_address_city" name="checkout[billing_address][city]" placeholder="Cidade" size="30" type="text" />
+</div>
+      <div class="field field--required" data-country-section="1">
+        <label for="checkout_billing_address_country">País</label>
+        <select autocomplete="billing country" data-persist="billing_address_country" id="checkout_billing_address_country" name="checkout[billing_address][country]" size="1"><option value="Portugal">Portugal</option>
+<option value="Angola">Angola</option>
+<option disabled="disabled" value="---">---</option>
+<option value="Afghanistan">Afeganistão</option>
+<option value="South Africa">África do Sul</option>
+<option value="Albania">Albânia</option>
+<option value="Germany">Alemanha</option>
+<option value="Andorra">Andorra</option>
+<option value="Angola">Angola</option>
+<option value="Anguilla">Anguilla</option>
+<option value="Antigua And Barbuda">Antígua e Barbuda</option>
+<option value="Netherlands Antilles">Antilhas Holandesas</option>
+<option value="Saudi Arabia">Arábia Saudita</option>
+<option value="Algeria">Argélia</option>
+<option value="Argentina">Argentina</option>
+<option value="Armenia">Armênia</option>
+<option value="Aruba">Aruba</option>
+<option value="Australia">Austrália</option>
+<option value="Austria">Áustria</option>
+<option value="Azerbaijan">Azerbaijão</option>
+<option value="Bahamas">Bahamas</option>
+<option value="Bahrain">Bahrein</option>
+<option value="Bangladesh">Bangladesh</option>
+<option value="Barbados">Barbados</option>
+<option value="Belgium">Bélgica</option>
+<option value="Belize">Belize</option>
+<option value="Benin">Benin</option>
+<option value="Bermuda">Bermudas</option>
+<option value="Belarus">Bielorrússia</option>
+<option value="Bolivia">Bolívia</option>
+<option value="Bosnia And Herzegovina">Bósnia e Herzegovina</option>
+<option value="Botswana">Botsuana</option>
+<option selected="selected" value="Brazil">Brasil</option>
+<option value="Brunei">Brunei</option>
+<option value="Bulgaria">Bulgária</option>
+<option value="Burkina Faso">Burquina Faso</option>
+<option value="Burundi">Burundi</option>
+<option value="Bhutan">Butão</option>
+<option value="Cape Verde">Cabo Verde</option>
+<option value="Cambodia">Camboja</option>
+<option value="Canada">Canadá</option>
+<option value="Qatar">Catar</option>
+<option value="Kazakhstan">Cazaquistão</option>
+<option value="Chad">Chade</option>
+<option value="Chile">Chile</option>
+<option value="China">China</option>
+<option value="Cyprus">Chipre</option>
+<option value="Holy See (Vatican City State)">Cidade do Vaticano</option>
+<option value="Singapore">Cingapura</option>
+<option value="Colombia">Colômbia</option>
+<option value="Comoros">Comores</option>
+<option value="Congo">Congo - Brazzaville</option>
+<option value="Congo, The Democratic Republic Of The">Congo - Kinshasa</option>
+<option value="Korea, Democratic People&#39;s Republic Of">Coreia do Norte</option>
+<option value="South Korea">Coreia do Sul</option>
+<option value="Costa Rica">Costa Rica</option>
+<option value="Côte d&#39;Ivoire">Costa do Marfim</option>
+<option value="Croatia">Croácia</option>
+<option value="Cuba">Cuba</option>
+<option value="Curaçao">Curaçao</option>
+<option value="Denmark">Dinamarca</option>
+<option value="Djibouti">Djibuti</option>
+<option value="Dominica">Dominica</option>
+<option value="Egypt">Egito</option>
+<option value="El Salvador">El Salvador</option>
+<option value="United Arab Emirates">Emirados Árabes Unidos</option>
+<option value="Ecuador">Equador</option>
+<option value="Eritrea">Eritreia</option>
+<option value="Slovakia">Eslováquia</option>
+<option value="Slovenia">Eslovênia</option>
+<option value="Spain">Espanha</option>
+<option value="United States">Estados Unidos</option>
+<option value="Estonia">Estônia</option>
+<option value="Ethiopia">Etiópia</option>
+<option value="Fiji">Fiji</option>
+<option value="Philippines">Filipinas</option>
+<option value="Finland">Finlândia</option>
+<option value="France">França</option>
+<option value="Gabon">Gabão</option>
+<option value="Gambia">Gâmbia</option>
+<option value="Ghana">Gana</option>
+<option value="Georgia">Geórgia</option>
+<option value="South Georgia And The South Sandwich Islands">Geórgia do Sul e Ilhas Sandwich do Sul</option>
+<option value="Gibraltar">Gibraltar</option>
+<option value="Grenada">Granada</option>
+<option value="Greece">Grécia</option>
+<option value="Greenland">Groenlândia</option>
+<option value="Guadeloupe">Guadalupe</option>
+<option value="Guatemala">Guatemala</option>
+<option value="Guernsey">Guernsey</option>
+<option value="Guyana">Guiana</option>
+<option value="French Guiana">Guiana Francesa</option>
+<option value="Guinea">Guiné</option>
+<option value="Guinea Bissau">Guiné Bissau</option>
+<option value="Equatorial Guinea">Guiné Equatorial</option>
+<option value="Haiti">Haiti</option>
+<option value="Netherlands">Holanda</option>
+<option value="Honduras">Honduras</option>
+<option value="Hong Kong">Hong Kong, RAE da China</option>
+<option value="Hungary">Hungria</option>
+<option value="Yemen">Iêmen</option>
+<option value="Bouvet Island">Ilha Bouvet</option>
+<option value="Christmas Island">Ilha Christmas</option>
+<option value="Norfolk Island">Ilha Norfolk</option>
+<option value="Isle Of Man">Ilha de Man</option>
+<option value="Aland Islands">Ilhas Åland</option>
+<option value="Cayman Islands">Ilhas Caiman</option>
+<option value="Cocos (Keeling) Islands">Ilhas Cocos (Keeling)</option>
+<option value="Cook Islands">Ilhas Cook</option>
+<option value="United States Minor Outlying Islands">Ilhas Distantes dos EUA</option>
+<option value="Faroe Islands">Ilhas Faroe</option>
+<option value="Heard Island And Mcdonald Islands">Ilhas Heard e McDonald</option>
+<option value="Falkland Islands (Malvinas)">Ilhas Malvinas</option>
+<option value="Pitcairn">Ilhas Pitcairn</option>
+<option value="Solomon Islands">Ilhas Salomão</option>
+<option value="Turks and Caicos Islands">Ilhas Turks e Caicos</option>
+<option value="Virgin Islands, British">Ilhas Virgens Britânicas</option>
+<option value="India">Índia</option>
+<option value="Indonesia">Indonésia</option>
+<option value="Iran, Islamic Republic Of">Irã</option>
+<option value="Iraq">Iraque</option>
+<option value="Ireland">Irlanda</option>
+<option value="Iceland">Islândia</option>
+<option value="Israel">Israel</option>
+<option value="Italy">Itália</option>
+<option value="Jamaica">Jamaica</option>
+<option value="Japan">Japão</option>
+<option value="Jersey">Jersey</option>
+<option value="Jordan">Jordânia</option>
+<option value="Kosovo">Kosovo</option>
+<option value="Kuwait">Kuwait</option>
+<option value="Lao People&#39;s Democratic Republic">Laos</option>
+<option value="Lesotho">Lesoto</option>
+<option value="Latvia">Letônia</option>
+<option value="Lebanon">Líbano</option>
+<option value="Liberia">Libéria</option>
+<option value="Libyan Arab Jamahiriya">Líbia</option>
+<option value="Liechtenstein">Liechtenstein</option>
+<option value="Lithuania">Lituânia</option>
+<option value="Luxembourg">Luxemburgo</option>
+<option value="Macao">Macau, RAE da China</option>
+<option value="Macedonia, Republic Of">Macedônia</option>
+<option value="Madagascar">Madagascar</option>
+<option value="Malaysia">Malásia</option>
+<option value="Malawi">Malawi</option>
+<option value="Maldives">Maldivas</option>
+<option value="Mali">Mali</option>
+<option value="Malta">Malta</option>
+<option value="Morocco">Marrocos</option>
+<option value="Martinique">Martinica</option>
+<option value="Mauritius">Maurício</option>
+<option value="Mauritania">Mauritânia</option>
+<option value="Mayotte">Mayotte</option>
+<option value="Mexico">México</option>
+<option value="Burma">Mianmar (Birmânia)</option>
+<option value="Mozambique">Moçambique</option>
+<option value="Moldova, Republic of">Moldávia</option>
+<option value="Monaco">Mônaco</option>
+<option value="Mongolia">Mongólia</option>
+<option value="Montenegro">Montenegro</option>
+<option value="Montserrat">Montserrat</option>
+<option value="Namibia">Namíbia</option>
+<option value="Nauru">Nauru</option>
+<option value="Nepal">Nepal</option>
+<option value="Nicaragua">Nicarágua</option>
+<option value="Niger">Níger</option>
+<option value="Nigeria">Nigéria</option>
+<option value="Niue">Niue</option>
+<option value="Norway">Noruega</option>
+<option value="New Caledonia">Nova Caledônia</option>
+<option value="New Zealand">Nova Zelândia</option>
+<option value="Oman">Omã</option>
+<option value="Panama">Panamá</option>
+<option value="Papua New Guinea">Papua-Nova Guiné</option>
+<option value="Pakistan">Paquistão</option>
+<option value="Paraguay">Paraguai</option>
+<option value="Peru">Peru</option>
+<option value="French Polynesia">Polinésia Francesa</option>
+<option value="Poland">Polônia</option>
+<option value="Portugal">Portugal</option>
+<option value="Kenya">Quênia</option>
+<option value="Kyrgyzstan">Quirguistão</option>
+<option value="Kiribati">Quiribati</option>
+<option value="United Kingdom">Reino Unido</option>
+<option value="Central African Republic">República Centro-Africana</option>
+<option value="Dominican Republic">República Dominicana</option>
+<option value="Czech Republic">República Tcheca</option>
+<option value="Republic of Cameroon">República dos Camarões</option>
+<option value="Reunion">Reunião</option>
+<option value="Romania">Romênia</option>
+<option value="Rwanda">Ruanda</option>
+<option value="Russia">Rússia</option>
+<option value="Western Sahara">Saara Ocidental</option>
+<option value="Saint Pierre And Miquelon">Saint Pierre e Miquelon</option>
+<option value="Samoa">Samoa</option>
+<option value="San Marino">San Marino</option>
+<option value="Saint Helena">Santa Helena</option>
+<option value="Saint Lucia">Santa Lúcia</option>
+<option value="Saint Barthélemy">São Bartolomeu</option>
+<option value="Saint Kitts And Nevis">São Cristóvão e Nevis</option>
+<option value="Saint Martin">São Martinho</option>
+<option value="Sao Tome And Principe">São Tomé e Príncipe</option>
+<option value="St. Vincent">São Vicente e Granadinas</option>
+<option value="Senegal">Senegal</option>
+<option value="Sierra Leone">Serra Leoa</option>
+<option value="Serbia">Sérvia</option>
+<option value="Seychelles">Seychelles</option>
+<option value="Syria">Síria</option>
+<option value="Somalia">Somália</option>
+<option value="Sri Lanka">Sri Lanka</option>
+<option value="Swaziland">Suazilândia</option>
+<option value="Sudan">Sudão</option>
+<option value="Sweden">Suécia</option>
+<option value="Switzerland">Suíça</option>
+<option value="Suriname">Suriname</option>
+<option value="Svalbard And Jan Mayen">Svalbard e Jan Mayen</option>
+<option value="Thailand">Tailândia</option>
+<option value="Taiwan">Taiwan</option>
+<option value="Tajikistan">Tajiquistão</option>
+<option value="Tanzania, United Republic Of">Tanzânia</option>
+<option value="British Indian Ocean Territory">Território Britânico do Oceano Índico</option>
+<option value="French Southern Territories">Territórios Franceses do Sul</option>
+<option value="Palestinian Territory, Occupied">Territórios palestinos</option>
+<option value="Timor Leste">Timor-Leste</option>
+<option value="Togo">Togo</option>
+<option value="Tokelau">Tokelau</option>
+<option value="Tonga">Tonga</option>
+<option value="Trinidad and Tobago">Trinidad e Tobago</option>
+<option value="Tunisia">Tunísia</option>
+<option value="Turkmenistan">Turcomenistão</option>
+<option value="Turkey">Turquia</option>
+<option value="Tuvalu">Tuvalu</option>
+<option value="Ukraine">Ucrânia</option>
+<option value="Uganda">Uganda</option>
+<option value="Uruguay">Uruguai</option>
+<option value="Uzbekistan">Uzbequistão</option>
+<option value="Vanuatu">Vanuatu</option>
+<option value="Venezuela">Venezuela</option>
+<option value="Vietnam">Vietnã</option>
+<option value="Wallis And Futuna">Wallis e Futuna</option>
+<option value="Zambia">Zâmbia</option>
+<option value="Zimbabwe">Zimbábue</option></select>
+</div>
+      <div class="field field--required" data-province-section="1">
+        <label for="checkout_billing_address_province">State</label>
+        <input autocomplete="billing region" data-persist="billing_address_province" id="checkout_billing_address_province" name="checkout[billing_address][province]" placeholder="State" type="text" />
+</div>
+      <div class="field field--required" data-zip-section="1">
+        <label for="checkout_billing_address_zip"> CEP</label>
+        <input autocomplete="billing postal-code" class="postal-code" data-persist="billing_address_zip" id="checkout_billing_address_zip" name="checkout[billing_address][zip]" placeholder="22290175" size="30" type="text" />
+</div>
+        <div class="field field--hidden">
+          <label for="checkout_billing_address_phone">Telefone</label>
+          <input autocomplete="billing tel" class="optional" id="checkout_billing_address_phone" name="checkout[billing_address][phone]" placeholder="(99) 9999-9999" size="30" type="tel" />
+</div>  </div>
+</div>
+
+
+
+          
+<div class="call-to-action call-to-action--final">
+    <label>
+      <input name="checkout[buyer_accepts_marketing]" type="hidden" value="0" /><input checked="checked" id="checkout_buyer_accepts_marketing" name="checkout[buyer_accepts_marketing]" type="checkbox" value="1" />
+      Receber nosso informativo
+</label>
+  <input class="btn btn--primary" data-submit-payment="true" name="complete" type="submit" value="Finalizar pedido" />
+</div>
+
+
+</div>
+      <div class="hidden" data-payment-subform="gift_cards">
+        <div class="section__blank-slate">
+          <input disabled="disabled" id="checkout_payment_gateway" name="checkout[payment_gateway]" size="30" type="hidden" value="free" />
+          <i class="icon icon--free-tag"></i>
+          <p>Os seus cartões-presente cobrem o pedido.</p>
+        </div>
+
+          
+<div class="call-to-action call-to-action--final">
+    <label>
+      <input disabled="disabled" name="checkout[buyer_accepts_marketing]" type="hidden" value="0" /><input checked="checked" disabled="disabled" id="checkout_buyer_accepts_marketing" name="checkout[buyer_accepts_marketing]" type="checkbox" value="1" />
+      Receber nosso informativo
+</label>
+  <input class="btn btn--primary" data-submit-payment="true" name="complete" type="submit" value="Finalizar pedido" />
+</div>
+
+
+</div>
+      <div class="hidden" data-payment-subform="free">
+        <div class="section__blank-slate">
+          <input disabled="disabled" id="checkout_payment_gateway" name="checkout[payment_gateway]" size="30" type="hidden" value="free" />
+          <i class="icon icon--free-tag"></i>
+          <p>Seu pedido é <strong>grátis</strong>. Não é necessário pagar.</p>
+        </div>
+
+          
+<div class="call-to-action call-to-action--final">
+    <label>
+      <input disabled="disabled" name="checkout[buyer_accepts_marketing]" type="hidden" value="0" /><input checked="checked" disabled="disabled" id="checkout_buyer_accepts_marketing" name="checkout[buyer_accepts_marketing]" type="checkbox" value="1" />
+      Receber nosso informativo
+</label>
+  <input class="btn btn--primary" data-submit-payment="true" name="complete" type="submit" value="Finalizar pedido" />
+</div>
+
+
+</div></form>  </div>
+
+  <div class="section__summary">
+      <p>Grátis</p>
+
+
+  </div>
+</div>
+
+
+    </div>
+
+    <div class="order-summary">
+
+  <div class="order-summary__section order-summary__section--header">
+    <h3>Resumo do pedido</h3>
+  </div>
+
+  <div class="summary-body">
+    <div class="order-summary__section order-summary__section--product-list">
+      <ul class="product-list">
+    	<ui:repeat var="item" value="#{shoppingCart.list}">
+		    <li class="product product--has-image">
+		        <img alt="#{item.book.title}" class="product__image" src="#{item.book.coverPath}" width="150px" height="150px"/>
+		      <div class="product__info">
+		        <span class="product__info__name"><strong>#{item.book.title}</strong> × #{shoppingCart.getQuantity(item)}</span>
+		        <span class="product__info__description">E-book + Impresso</span>
+		      </div>
+		        <strong class="product__price">R$ #{shoppingCart.getTotal(item)}</strong>
+		    </li>
+	    </ui:repeat>
+	</ul>
+
+    </div>
+
+      <div class="order-summary__section" id="discount">
+
+          <form accept-charset="UTF-8" action="/1557645/checkouts/b6e41fa9bc053211b474172490936429" class="edit_checkout" id="edit_checkout_2420555905" method="post"><div style="display:none"><input name="utf8" type="hidden" value="&#x2713;" /><input name="_method" type="hidden" value="put" /><input name="authenticity_token" type="hidden" value="LtXYVyORSD3IEosr7s97Y/7aSmFtmQK8HI3I78DEn7g=" /></div>
+            <input id="current_step" name="current_step" type="hidden" value="contact_information" />
+
+              <a href="#" data-shown-if-js="" data-show-on-click="#discount-field" id="show-discount-form-link" class="more">
+                Possui um código de desconto? Insira-o aqui
+              </a>
+
+            <div id="discount-field" class="fieldset discount-field">
+              <div class="field field--has-inset-btn ">
+                
+                  <label for="checkout_discount_code">Desconto</label>
+                  <input id="checkout_discount_code" name="checkout[discount][code]" placeholder="Desconto" size="30" type="text" />
+                <p class="field__error-message"></p>
+                <input class="btn btn--inset" name="commit" type="submit" value="Aplicar" />
+              </div>
+            </div>
+</form>
+      </div>
+
+    <div class="order-summary__section" data-order-summary-section="payment-lines">
+      <div class="total-line total-line--subtotal">
+        <span class="total-line__name">
+          Subtotal
+        </span>
+        <strong class="total-line__price" data-checkout-subtotal-price-target="">R$ #{shoppingCart.total}</strong>
+      </div>
+      <div class="total-line total-line--shipping">
+        <span class="total-line__name">
+          Envio
+        </span>
+        <strong class="total-line__price" data-checkout-subtotal-price-target="">—</strong>
+      </div>
+      <div class="total-line total-line--taxes">
+        <span class="total-line__name">
+          Impostos
+        </span>
+        <strong class="total-line__price" data-checkout-subtotal-price-target="">—</strong>
+      </div>
+      <div class="total-line total-line--total">
+        <span class="total-line__name">
+          Total
+        </span>
+        <strong class="total-line__price" data-checkout-subtotal-price-target="">R$ #{shoppingCart.total}</strong>
+      </div>
+    </div>
+
+    <div class="order-summary__section" data-order-summary-section="payment-due">
+      <div class="payment-due-container">
+        <span class="payment-due__label">
+            Aguardando pagamento
+        </span>
+        <div class="payment-due">
+          <div class="payment-due__price" data-checkout-payment-due-target="">R$ #{shoppingCart.total}</div>
+          <div class="payment-due__currency">BRL</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+    <div class="section section--additional-mobile-cta">
+        <input class="btn" id="additional-mobile-cta" name="commit" type="submit" value="Continuar" />
+    </div>
+  </div>
+</div>
+
+    <div class="footer">
+  <div class="wrap">
+    <p class="footer__copyright">
+      Todos os direitos reservados Casa do Codigo
+    </p>
+  </div>
+</div>
+  </body>
+</html>
