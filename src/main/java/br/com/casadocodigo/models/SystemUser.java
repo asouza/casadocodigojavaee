@@ -1,12 +1,18 @@
 package br.com.casadocodigo.models;
 
+import java.util.UUID;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.PrePersist;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 
+@Entity
 public class SystemUser {
 
 	@Id
@@ -14,6 +20,7 @@ public class SystemUser {
 	private Integer id;
 	@Email
 	@NotBlank
+	@Column(unique=true)
 	private String email;
 	@NotBlank
 	private String firstName;
@@ -33,6 +40,17 @@ public class SystemUser {
 	private String phone;
 	@NotBlank
 	private String country;
+	@Column(unique=true)
+	private String uuid;
+	
+	@PrePersist
+	private void prePersist(){
+		this.uuid = UUID.randomUUID().toString();
+	}
+	
+	public String getUuid() {
+		return uuid;
+	}
 
 	public Integer getId() {
 		return id;

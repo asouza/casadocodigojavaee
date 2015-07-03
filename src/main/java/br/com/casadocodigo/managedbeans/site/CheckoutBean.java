@@ -1,24 +1,32 @@
 package br.com.casadocodigo.managedbeans.site;
 
-import java.math.BigDecimal;
+import java.io.IOException;
 
 import javax.enterprise.inject.Model;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
-import javax.ws.rs.ClientErrorException;
-import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientBuilder;
-import javax.ws.rs.client.Entity;
+import javax.transaction.Transactional;
+import javax.ws.rs.Path;
 
-import br.com.casadocodigo.models.PaymentData;
+import br.com.casadocodigo.daos.CheckoutDAO;
+import br.com.casadocodigo.daos.SystemUserDAO;
+import br.com.casadocodigo.models.Checkout;
 import br.com.casadocodigo.models.ShoppingCart;
 import br.com.casadocodigo.models.SystemUser;
 
 @Model
+@Path("payment")
 public class CheckoutBean {
 
-	@Inject
-	private ShoppingCart cart;
 	private SystemUser systemUser = new SystemUser();
+	@Inject
+	private SystemUserDAO systemUserDAO;
+	@Inject
+	private CheckoutDAO checkoutDAO;
+	@Inject
+	private ShoppingCart cart;	
+	@Inject
+	private FacesContext facesContext;
 
 	public SystemUser getSystemUser() {
 		return systemUser;
@@ -27,20 +35,15 @@ public class CheckoutBean {
 	public void setSystemUser(SystemUser systemUser) {
 		this.systemUser = systemUser;
 	}
-
-	public String checkout() {
-		BigDecimal total = cart.getTotal();
-		String uriToPay = "http://book-payment.herokuapp.com/payment";
-
-		Client client = ClientBuilder.newClient();
-		PaymentData paymentData = new PaymentData(total);
-		try {
-			client.target(uriToPay).request()
-					.post(Entity.json(paymentData), String.class);
-			return "/site/pagamento/ok.xhtml?faces-redirect=true";
-		} catch (ClientErrorException exception) {
-			return "/site/pagamento/falha.xhtml?faces-redirect=true";
-		}
-
+	
+	@Transactional
+	public void checkout() throws IOException {
+		systemUserDAO.save(systemUser);
+		
+		Checkout checkout = new Checkout(systemUser,cart);
+		checkoutDAO.save(checkout);		
+		
+		String contextName = facesContext.getExternalContext().getContextName();		
+		facesContext.getExternalContext().redirect("/"+contextName+"/services/payment?&uuid="+systemUser.getUuid());
 	}
 }

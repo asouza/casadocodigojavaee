@@ -9,10 +9,12 @@ import java.util.Map;
 
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
+import javax.json.Json;
+import javax.json.JsonArrayBuilder;
 
 @Named
 @SessionScoped
-public class ShoppingCart implements Serializable{
+public class ShoppingCart implements Serializable {
 
 	/**
 	 * 
@@ -43,11 +45,11 @@ public class ShoppingCart implements Serializable{
 	public BigDecimal getTotal(ShoppingItem item) {
 		return item.getTotal(getQuantity(item));
 	}
-	
-	public BigDecimal getTotal(){
+
+	public BigDecimal getTotal() {
 		BigDecimal total = BigDecimal.ZERO;
-		//TODO change to reduce?
-		for(ShoppingItem item : items.keySet()){
+		// TODO change to reduce?
+		for (ShoppingItem item : items.keySet()) {
 			total = total.add(getTotal(item));
 		}
 		return total;
@@ -61,4 +63,16 @@ public class ShoppingCart implements Serializable{
 		return items.isEmpty();
 	}
 
+	public String toJson() {
+		JsonArrayBuilder itens = Json.createArrayBuilder();
+		for (ShoppingItem item : getList()) {
+			itens.add(Json.createObjectBuilder()
+					.add("title", item.getBook().getTitle())
+					.add("price", item.getBook().getPrice())
+					.add("quantity",getQuantity(item).intValue())
+					.add("sum", getTotal(item)));
+					
+		}
+		return itens.build().toString();
+	}
 }

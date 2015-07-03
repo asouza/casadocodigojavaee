@@ -7,9 +7,10 @@ import java.util.concurrent.Executors;
 
 import javax.inject.Inject;
 import javax.servlet.ServletContext;
-import javax.ws.rs.ClientErrorException;
-import javax.ws.rs.POST;
+import javax.transaction.Transactional;
+import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
@@ -19,6 +20,7 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriBuilder;
 
+import br.com.casadocodigo.daos.SystemUserDAO;
 import br.com.casadocodigo.models.PaymentData;
 import br.com.casadocodigo.models.ShoppingCart;
 
@@ -31,22 +33,23 @@ public class PaymentResource {
 	@Context
 	private ServletContext ctx;
 
-	@POST
-	@Path("/")
-	public void pay(@Suspended final AsyncResponse ar) {
+	@GET
+	public void pay(@Suspended final AsyncResponse ar,@QueryParam("uuid") String uuid) {
+		String contextPath = ctx.getContextPath();
 		executor.submit(() -> {
-
+			
 			BigDecimal total = cart.getTotal();
 			String uriToPay = "http://book-payment.herokuapp.com/payment";
 
 			Client client = ClientBuilder.newClient();
 			PaymentData paymentData = new PaymentData(total);
 			try {
+				Entity<PaymentData> json = Entity.json(paymentData);
 				client.target(uriToPay).request()
-						.post(Entity.json(paymentData), String.class);
+						.post(json, String.class);
 
 				URI redirectURI = UriBuilder
-						.fromUri(ctx.getContextPath() + "/site/index.xhtml")
+						.fromUri(contextPath + "/site/index.xhtml")
 						.queryParam("msg", "Compra realizada com sucesso")
 						.build();
 
@@ -55,7 +58,6 @@ public class PaymentResource {
 				ar.resume(response);
 
 			} catch (Exception exception) {
-				exception.printStackTrace();
 				ar.resume(exception);
 			}
 		});
