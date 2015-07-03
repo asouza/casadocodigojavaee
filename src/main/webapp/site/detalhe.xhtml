@@ -133,23 +133,23 @@
     </ul>
   </nav>
 <article id="livro-css-eficiente">
-  <header id="product-highlight" class="clearfix">
-    <div id="product-overview" class="container">
-      <img width="280px" height="395px" src="#{productDetailBean.book.coverPath}" class="product-featured-image" alt="CSS Eficiente: Técnicas e ferramentas que fazem a diferença nos seus estilos"/>
-      <h1 class="product-title">#{productDetailBean.book.title}</h1>
-      <p class="product-author">
-        <span class="product-author-link">
-          
-            <ui:repeat var="author" value="#{productDetailBean.book.authors}">
-            	#{author.name}|
-            </ui:repeat>
-          
-        </span>
-      </p>	
-	
-    <p class="book-description">#{productDetailBean.book.description}</p>
-    </div>
-  </header>
+	  <header id="product-highlight" class="clearfix">
+	    <div id="product-overview" class="container">
+	      <img width="280px" height="395px" src="#{productDetailBean.book.coverPath}" class="product-featured-image" alt="CSS Eficiente: Técnicas e ferramentas que fazem a diferença nos seus estilos"/>
+	      <h1 class="product-title">#{productDetailBean.book.title}</h1>
+	      <p class="product-author">
+	        <span class="product-author-link">
+	          
+	            <ui:repeat var="author" value="#{productDetailBean.book.authors}">
+	            	#{author.name}|
+	            </ui:repeat>
+	          
+	        </span>
+	      </p>	
+		
+	    <p class="book-description">#{productDetailBean.book.description}</p>
+	    </div>
+	  </header>
 
   
   <section class="buy-options clearfix">  

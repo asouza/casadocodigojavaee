@@ -22,7 +22,7 @@ import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
-@Cacheable
+//@Cacheable
 public class Book {
 
 	@Id
@@ -42,7 +42,7 @@ public class Book {
 	@ManyToMany
 	@Size(min = 1)
 	@NotNull
-	@Cache(usage=CacheConcurrencyStrategy.TRANSACTIONAL)
+	//@Cache(usage=CacheConcurrencyStrategy.TRANSACTIONAL)
 	private List<Author> authors = new ArrayList<>();
 	@NotNull
 	private Calendar releaseDate;
