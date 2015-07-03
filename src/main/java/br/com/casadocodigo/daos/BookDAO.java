@@ -2,14 +2,18 @@ package br.com.casadocodigo.daos;
 
 import java.util.List;
 
+import javax.annotation.PreDestroy;
+import javax.ejb.Stateful;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.PersistenceContextType;
 
 import br.com.casadocodigo.models.Book;
 
+@Stateful
 public class BookDAO {
 
-	@PersistenceContext
+	@PersistenceContext(type=PersistenceContextType.EXTENDED)
 	private EntityManager manager;
 
 	public void save(Book product) {
@@ -34,10 +38,7 @@ public class BookDAO {
 	}
 
 	public Book findById(Integer id) {
-		return manager
-				.createQuery(
-						"select b from Book b join fetch b.authors where b.id=:id",
-						Book.class).setParameter("id", id).getSingleResult();
+		return manager.find(Book.class,id);
 	}
-
+	
 }

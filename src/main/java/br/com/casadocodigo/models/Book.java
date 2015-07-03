@@ -3,9 +3,9 @@ package br.com.casadocodigo.models;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Cacheable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,10 +16,13 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
+@Cacheable
 public class Book {
 
 	@Id
@@ -39,6 +42,7 @@ public class Book {
 	@ManyToMany
 	@Size(min = 1)
 	@NotNull
+	@Cache(usage=CacheConcurrencyStrategy.TRANSACTIONAL)
 	private List<Author> authors = new ArrayList<>();
 	@NotNull
 	private Calendar releaseDate;
