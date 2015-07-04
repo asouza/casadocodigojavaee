@@ -32,13 +32,18 @@ public class BookDAO {
 						Book.class).setMaxResults(3).getResultList();
 	}
 
-	public List<Book> olderBooks() {
-		return manager.createQuery("select b from Book b", Book.class)
-				.setMaxResults(20).getResultList();
+	public List<Book> last(int number) {
+		return manager.createQuery("select b from Book b join fetch b.authors", Book.class)
+				.setMaxResults(number).getResultList();
 	}
 
 	public Book findById(Integer id) {
 		return manager.find(Book.class,id);
+	}
+	
+	@PreDestroy
+	private void removendo(){
+		System.out.println("removendo BookDAO");
 	}
 	
 }
