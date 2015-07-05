@@ -44,6 +44,6 @@ public class CheckoutBean {
 		checkoutDAO.save(checkout);		
 		
 		String contextName = facesContext.getExternalContext().getContextName();		
-		facesContext.getExternalContext().redirect("/"+contextName+"/services/payment?&uuid="+systemUser.getUuid());
+		facesContext.getExternalContext().redirect("/"+contextName+"/services/payment?uuid="+checkout.getUuid());
 	}
 }
