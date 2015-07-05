@@ -1,0 +1,1 @@
+curl http://localhost:8080/casadocodigo/services/payment?uuid=0d148a40-bf19-4383-a051-93157c44458d
