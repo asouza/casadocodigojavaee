@@ -18,4 +18,5 @@ target
 .project
 .settings
 .tern-project
+src/main/java/br/com/casadocodigo/conf/MailConfiguration.java
 
