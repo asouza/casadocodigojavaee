@@ -41,7 +41,8 @@ public class SystemUser {
 	@NotBlank
 	private String country;
 	@Column(unique=true)
-	private String uuid;
+	private String uuid;	
+	private String password;
 	
 	@PrePersist
 	private void prePersist(){
@@ -139,5 +140,5 @@ public class SystemUser {
 	public void setCountry(String country) {
 		this.country = country;
 	}
-
+	
 }
