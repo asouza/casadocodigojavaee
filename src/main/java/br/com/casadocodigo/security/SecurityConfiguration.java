@@ -1,12 +1,6 @@
 package br.com.casadocodigo.security;
 
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
-import javax.persistence.EntityManagerFactory;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
@@ -22,7 +16,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests().antMatchers("/livros/**").hasRole("ADMIN")
 				.antMatchers("/site/**").permitAll()
 				.antMatchers("/services/**").permitAll()
-				.antMatchers("/users/**").permitAll().anyRequest()
+				.antMatchers("/users/**").hasRole("ADMIN")
+				.anyRequest()
 				.authenticated().and().formLogin().and().csrf().disable();
 	}
 
