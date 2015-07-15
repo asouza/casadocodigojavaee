@@ -1,0 +1,19 @@
+<html xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+<h:body>
+	<h:messages />
+	<h:form>
+		<div>
+			<h:outputLabel>Email</h:outputLabel>
+			<h:inputText value="#{adminSystemUserBean.systemUser.email}" label="email"/>
+		</div>
+		<div>
+			<h:outputLabel>Password</h:outputLabel>
+			<h:inputSecret value="#{adminSystemUserBean.rawPassword}"/>
+		</div>
+		<h:commandButton value="Gravar" action="#{adminSystemUserBean.save()}" />
+	</h:form>
+</h:body>
+</html>

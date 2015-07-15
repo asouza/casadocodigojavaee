@@ -6,6 +6,6 @@ public class SpringSecurityFilterConfiguration extends
 		AbstractSecurityWebApplicationInitializer {
 
 	public SpringSecurityFilterConfiguration() {
-		super(SecurityConfiguration.class,SystemUserDAO.class);
+		super(SecurityConfiguration.class,SystemUserDAO.class,JPAConfiguration.class);
 	}
 }

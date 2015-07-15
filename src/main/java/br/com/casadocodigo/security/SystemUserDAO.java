@@ -21,7 +21,7 @@ public class SystemUserDAO implements UserDetailsService{
 	@Override
 	public UserDetails loadUserByUsername(String username)
 			throws UsernameNotFoundException {
-		String jpql = "select u from SystemUser u where u.login = :login";
+		String jpql = "select u from SystemUser u where u.email = :login";
 		List<SystemUser> users = em.createQuery(jpql,SystemUser.class).setParameter("login", username).getResultList();
 		if(users.isEmpty()){
 			throw new UsernameNotFoundException("O usuario "+username+" não existe");

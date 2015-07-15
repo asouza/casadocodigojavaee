@@ -23,4 +23,9 @@
 		<param-name>javax.faces.PROJECT_STAGE</param-name>
 		<param-value>Development</param-value>
 	</context-param>
+
+	<persistence-unit-ref>
+		<persistence-unit-ref-name>persistence/casadocodigo-emf</persistence-unit-ref-name>
+		<persistence-unit-name>casadocodigo-persistence-unit</persistence-unit-name>
+	</persistence-unit-ref>
 </web-app>
