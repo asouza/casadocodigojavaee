@@ -3,7 +3,6 @@ package br.com.casadocodigo.models;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -21,6 +20,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import br.com.casadocodigo.models.validation.groups.BuyerGroup;
 import br.com.casadocodigo.security.AllowedRoles;
 
 @Entity
@@ -33,26 +33,24 @@ public class SystemUser implements UserDetails{
 	@NotBlank
 	@Column(unique=true)
 	private String email;
-	@NotBlank
+	@NotBlank(groups=BuyerGroup.class)
 	private String firstName;
-	@NotBlank
+	@NotBlank(groups=BuyerGroup.class)
 	private String lastName;
-	@NotBlank
+	@NotBlank(groups=BuyerGroup.class)
 	private String socialId;
-	@NotBlank
+	@NotBlank(groups=BuyerGroup.class)
 	private String address;
-	@NotBlank
+	@NotBlank(groups=BuyerGroup.class)
 	private String city;
-	@NotBlank
+	@NotBlank(groups=BuyerGroup.class)
 	private String state;
-	@NotBlank
+	@NotBlank(groups=BuyerGroup.class)
 	private String postalCode;
-	@NotBlank
+	@NotBlank(groups=BuyerGroup.class)
 	private String phone;
-	@NotBlank
+	@NotBlank(groups=BuyerGroup.class)
 	private String country;
-	@Column(unique=true)
-	private String uuid;	
 	private String password;
 	@ManyToMany(fetch = FetchType.EAGER)
 	private List<SystemRole> roles = new ArrayList<>();	
@@ -67,17 +65,12 @@ public class SystemUser implements UserDetails{
 	
 	@PrePersist
 	private void prePersist(){
-		this.uuid = UUID.randomUUID().toString();
 		if(StringUtils.isBlank(password)){
 			this.password = new BCryptPasswordEncoder().encode("123456");
 			this.roles.add(new SystemRole(AllowedRoles.ROLE_COMPRADOR.name()));
 		}
 	}
 	
-	public String getUuid() {
-		return uuid;
-	}
-
 	public Integer getId() {
 		return id;
 	}
