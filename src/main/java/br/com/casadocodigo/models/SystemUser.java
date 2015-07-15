@@ -1,19 +1,30 @@
 package br.com.casadocodigo.models;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.PrePersist;
 
+import org.apache.commons.lang3.StringUtils;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
+import br.com.casadocodigo.security.AllowedRoles;
 
 @Entity
-public class SystemUser {
+public class SystemUser implements UserDetails{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -43,10 +54,24 @@ public class SystemUser {
 	@Column(unique=true)
 	private String uuid;	
 	private String password;
+	@ManyToMany(fetch = FetchType.EAGER)
+	private List<SystemRole> roles = new ArrayList<>();	
+	
+	public void add(SystemRole role){
+		this.roles.add(role);
+	}
+	
+	public void setPassword(String password) {
+		this.password = password;
+	}
 	
 	@PrePersist
 	private void prePersist(){
 		this.uuid = UUID.randomUUID().toString();
+		if(StringUtils.isBlank(password)){
+			this.password = new BCryptPasswordEncoder().encode("123456");
+			this.roles.add(new SystemRole(AllowedRoles.ROLE_COMPRADOR.name()));
+		}
 	}
 	
 	public String getUuid() {
@@ -139,6 +164,41 @@ public class SystemUser {
 
 	public void setCountry(String country) {
 		this.country = country;
+	}
+
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		return this.roles;
+	}
+
+	@Override
+	public String getPassword() {
+		return this.password;
+	}
+
+	@Override
+	public String getUsername() {
+		return this.email;
+	}
+
+	@Override
+	public boolean isAccountNonExpired() {
+		return true;
+	}
+
+	@Override
+	public boolean isAccountNonLocked() {
+		return true;
+	}
+
+	@Override
+	public boolean isCredentialsNonExpired() {
+		return true;
+	}
+
+	@Override
+	public boolean isEnabled() {
+		return true;
 	}
 	
 }
