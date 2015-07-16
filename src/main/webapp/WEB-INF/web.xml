@@ -24,8 +24,30 @@
 		<param-value>Development</param-value>
 	</context-param>
 
-	<persistence-unit-ref>
-		<persistence-unit-ref-name>persistence/casadocodigo-emf</persistence-unit-ref-name>
-		<persistence-unit-name>casadocodigo-persistence-unit</persistence-unit-name>
-	</persistence-unit-ref>
+	<login-config>		
+		<auth-method>FORM</auth-method>
+		<realm-name>database-login</realm-name>
+		<form-login-config>
+			<form-login-page>/users/login.xhtml</form-login-page>
+			<form-error-page>/users/login-error.xhtml</form-error-page>		
+		</form-login-config>
+	</login-config>
+
+	<security-constraint>
+		<display-name>Administracao</display-name>
+		<web-resource-collection>
+			<web-resource-name>administracao</web-resource-name>
+			<description>Urls que levam para paginas de administracao</description>
+			<url-pattern>/livros/*</url-pattern>
+			<http-method>GET</http-method>
+			<http-method>POST</http-method>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>ROLE_ADMIN</role-name>			
+		</auth-constraint>
+	</security-constraint>
+	<security-role>
+		<role-name>ROLE_ADMIN</role-name>		
+	</security-role>
+
 </web-app>
