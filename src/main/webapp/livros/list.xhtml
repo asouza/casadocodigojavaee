@@ -4,7 +4,7 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 	<h:body>
 		<div>
-			Seja bem vindo, #{currentUser.login}
+			Seja bem vindo, #{currentUser.get().email}
 		</div>
 		<h:messages id="messages"/>
 		<h:dataTable value="#{adminListBooksBean.books}" var="book">
