@@ -13,4 +13,8 @@ public class CurrentUser {
 	public boolean hasRole(String name){
 		return request.isUserInRole(name);
 	}
+	
+	public String getLogin(){
+		return request.getUserPrincipal().getName();
+	}
 }
