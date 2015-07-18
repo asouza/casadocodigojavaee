@@ -3,7 +3,8 @@
 	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-	xmlns:o="http://omnifaces.org/ui">
+	xmlns:o="http://omnifaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
 <!--<![endif]-->
 <head>
   <meta charset="utf-8"/>
@@ -62,7 +63,11 @@
 			</a>
 			<div id="header-content">
 				<nav id="main-nav">
+					
 					<ul class="clearfix">
+						<c:if test="${currentUser.hasRole('ROLE_ADMIN')}">
+							<li><a href="#{request.contextPath}/livros/list.xhtml" rel="nofollow">Administração</a></li>
+						</c:if>
 
 						<li><a href="/cart" rel="nofollow">Seu carrinho </a></li>
 
