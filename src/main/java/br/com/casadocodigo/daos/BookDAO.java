@@ -3,18 +3,24 @@ package br.com.casadocodigo.daos;
 import java.util.List;
 
 import javax.annotation.PreDestroy;
-import javax.ejb.Stateful;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.PersistenceContextType;
 
 import br.com.casadocodigo.models.Book;
 
-@Stateful
 public class BookDAO {
 
-	@PersistenceContext(type=PersistenceContextType.EXTENDED)
+	@PersistenceContext
 	private EntityManager manager;
+
+	public BookDAO() {
+
+	}
+
+	public BookDAO(EntityManager manager) {
+		super();
+		this.manager = manager;
+	}
 
 	public void save(Book product) {
 		manager.persist(product);
@@ -33,17 +39,13 @@ public class BookDAO {
 	}
 
 	public List<Book> last(int number) {
-		return manager.createQuery("select b from Book b join fetch b.authors", Book.class)
-				.setMaxResults(number).getResultList();
+		return manager
+				.createQuery("select b from Book b join fetch b.authors",
+						Book.class).setMaxResults(number).getResultList();
 	}
 
 	public Book findById(Integer id) {
-		return manager.find(Book.class,id);
+		return manager.find(Book.class, id);
 	}
-	
-	@PreDestroy
-	private void removendo(){
-		System.out.println("removendo BookDAO");
-	}
-	
+
 }

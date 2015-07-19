@@ -6,7 +6,8 @@
 	xmlns:jsf="http://xmlns.jcp.org/jsf">
 	
 	<f:metadata>
-		<f:viewParam id="id" name="id" value="#{productDetailBean.id}"/>	
+		<f:viewParam id="id" name="id" value="#{productDetailBean.id}"/>
+		<f:viewAction action="#{productDetailBean.loadBook()}"/>	
 	</f:metadata>	
 	
 <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="pt"><![endif]-->
@@ -165,8 +166,7 @@
             <p class="variant-price">R$ #{productDetailBean.book.price}</p>
           </li>           
     </ul>
-    
-      <button type="submit" jsf:action="#{shoppingCartBean.add(productDetailBean.book.id)}" class="submit-image icon-basket-alt" title="#{productDetailBean.book.title}"></button>
+      <button type="submit" jsf:action="#{shoppingCartBean.add(productDetailBean.id)}" class="submit-image icon-basket-alt" title="#{productDetailBean.book.title}"></button>
     
   </form>
   
@@ -211,7 +211,7 @@
         
     
     <p></p>
-    <p>Data de publicação: #{formatter.dateFormat(productDetailBean.book.releaseDate)}</p>
+    <p>Data de publicação: <h:outputText value="#{productDetailBean.book.releaseDate.time}"><f:convertDateTime pattern="dd/MM/yyyy"/></h:outputText> </p>
     <p>Encontrou um erro? <a href='/submissao-errata' target='_blank'>Submeta uma errata</a></p>
   </section>
 </div>

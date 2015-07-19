@@ -10,5 +10,7 @@
 			<var>msg</var>
 		</resource-bundle>		
 	</application>
-	
+	<lifecycle>
+		<phase-listener>br.com.casadocodigo.debug.DebugPhaseListener</phase-listener>
+	</lifecycle>	
 </faces-config>		

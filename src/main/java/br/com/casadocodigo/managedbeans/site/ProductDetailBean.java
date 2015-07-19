@@ -1,24 +1,40 @@
 package br.com.casadocodigo.managedbeans.site;
 
+import javax.annotation.PostConstruct;
+import javax.ejb.Stateful;
 import javax.enterprise.inject.Model;
-import javax.inject.Inject;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.PersistenceContextType;
 
 import br.com.casadocodigo.daos.BookDAO;
 import br.com.casadocodigo.models.Book;
 
 @Model
+@Stateful
 public class ProductDetailBean {
 
-	@Inject
+	@PersistenceContext(type=PersistenceContextType.EXTENDED)	
+	private EntityManager manager;
 	private BookDAO bookDAO;
 	private Book book;
+	private Integer id;
 	
-	public void setId(Integer id){
+	@PostConstruct
+	private void loadDAO(){
+		this.bookDAO = new BookDAO(manager);
+	}
+	
+	public void loadBook(){
 		this.book = bookDAO.findById(id);
 	}
 	
+	public void setId(Integer id){
+		this.id = id;
+	}
+	
 	public Integer getId() {
-		return null;
+		return id;
 	}
 	
 	public Book getBook() {
