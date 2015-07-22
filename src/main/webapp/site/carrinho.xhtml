@@ -5,10 +5,6 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:jsf="http://xmlns.jcp.org/jsf">
 	
-	<f:metadata>
-		<f:viewParam id="id" name="id" value="#{productDetailBean.id}"/>	
-	</f:metadata>	
-	
 <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="pt"><![endif]-->
 <!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="pt"><![endif]-->
 <!--[if IE 8]><html class="no-js lt-ie9" lang="pt"><![endif]-->
@@ -21,14 +17,14 @@
   <link href="https://plus.googlecom/108540024862647200608" rel="publisher"/>
 
   
-    <title>#{productDetailBean.book.title}</title>
+    <title></title>
 
-  <link href="http://cdn.shopify.com/s/files/1/0155/7645/t/177/assets/cssbase-min.css?11981592617154272979" rel="stylesheet" type="text/css"  media="all"  />
+  <link href="#{request.contextPath}/resources/css/cssbase-min.css" rel="stylesheet" type="text/css" media="all" />
   <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet'/>
-  <link href="http://cdn.shopify.com/s/files/1/0155/7645/t/177/assets/fonts.css?11981592617154272979" rel="stylesheet" type="text/css"  media="all"  />
-  <link href="http://cdn.shopify.com/s/files/1/0155/7645/t/177/assets/fontello-ie7.css?11981592617154272979" rel="stylesheet" type="text/css"  media="all"  />
-  <link href="http://cdn.shopify.com/s/files/1/0155/7645/t/177/assets/fontello-embedded.css?11981592617154272979" rel="stylesheet" type="text/css"  media="all"  />
-  <link href="http://cdn.shopify.com/s/files/1/0155/7645/t/177/assets/fontello.css?11981592617154272979" rel="stylesheet" type="text/css"  media="all"  />
+  <link href="#{request.contextPath}/resources/css/fonts.css" rel="stylesheet" type="text/css" media="all" />
+  <link href="#{request.contextPath}/resources/css/fontello-ie7.css" rel="stylesheet" type="text/css" media="all" />
+  <link href="#{request.contextPath}/resources/css/fontello-embedded.css" rel="stylesheet" type="text/css" media="all" />
+  <link href="#{request.contextPath}/resources/css/fontello.css" rel="stylesheet" type="text/css" media="all" />
 
   
   

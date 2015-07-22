@@ -1,0 +1,242 @@
+html {
+  color: #333333;
+}
+
+#logo {
+  background: url('//cdn.shopify.com/s/files/1/0155/7645/t/177/assets/casa-do-codigo.svg?12627631472548691746') no-repeat;
+  background-size: 210px 61px;
+  background-position: center;
+  margin: 0;
+  display: block;
+  width: 210px;
+  height: 66px;
+  padding: 11px 0;
+}
+
+#layout-header {
+  background: #000;
+}
+
+#submit-product-newsletter{
+  background-color: #000;
+}
+#main-nav ul li:hover {
+  border-bottom: 7px solid #EF7000;
+}
+#main-nav ul li a:link,
+#main-nav ul li a:visited {
+  color: #F5F5F5;
+}
+
+#main-nav ul li a:hover,
+#main-nav ul li a:active {
+  color: rgb(220);
+}
+
+.categories-nav {
+  background-color: #584534;
+}
+.category > a {
+    color: #FFF;
+}
+
+.category > a:hover {
+    background-color: rgba(255,255,255,0.15); /*LEVE CLAREAMENTO*/
+    border-radius: 5px;
+}
+
+#home-highlight-collection li a h2 {
+  color: #EF7000;
+}
+#home-highlight-collection li a:hover h2 {
+  color: #EF7502;
+}
+
+#home-highlight-collection li a small {
+  color: #FFF;
+  background-color: #FB7B00;
+}
+#home-highlight-collection li a:hover small {
+  background-color: #EF7502;
+}
+
+.cdc-call {
+  background-color: #FDECD3;
+  color: #F07D22;
+}
+
+.book-collection li a h2 {
+  color: #EF7000;
+}
+
+.book-collection li a:hover h2{
+    color: #EF7502;
+}
+
+.book-collection li a small {
+  color: #FFF;
+  background: #EF7000;
+}
+
+.book-collection li a:hover small{
+  background-color: #EF7502;
+}
+
+#cdc-diferenciais li h3 {
+  color: #EF7000;
+}
+
+#submit-newsletter {
+  background-color: #F86713;
+  color: white;
+}
+
+#submit-newsletter:hover {
+  background-color: #EF7000;
+  color: white;
+}
+
+#collection-title {
+  background-color: rgba(0,0,0,0.5); /*DROP SHADOW*/
+  color: #F58220;
+}
+
+#collection li {
+  border-bottom: 1px dotted #CCC;
+}
+
+.section-title {
+  border-bottom: 1px dotted #EF7000;
+  color: #EF7000;
+}
+
+#layout-footer {
+  background: #000;
+  color: #FFF;
+}
+
+#layout-footer a {
+  color: #FFF;
+}
+
+.footer-title {
+  color: #EF7000;
+}
+
+.footer-payments {
+  background-color: rgba(255,255,255,0.2);
+}
+
+.footer-text-links li a:hover {
+  background: rgba(255,255,255,0.3); /*LEVE CLAREAMENTO*/
+}
+
+#cart-title {
+  border-bottom: 1px dotted #EF7000;
+  color: #EF7000;
+}
+
+#checkout{
+  text-decoration: bold;
+  color: #FFF;
+  text-shadow: none;/*1px 3px #295408; /*ORIGINAL #A74E00*/
+  border: 2px solid #FBBD87;
+  background-image: url('//cdn.shopify.com/s/files/1/0155/7645/t/177/assets/carrinho.png?12627631472548691746'), #F4994A; /* Old browsers */
+  background-image: url('//cdn.shopify.com/s/files/1/0155/7645/t/177/assets/carrinho.png?12627631472548691746'), -moz-linear-gradient(top, #F4994A 0%, #EF7000 100%); /* FF3.6+ */
+  background-image: url('//cdn.shopify.com/s/files/1/0155/7645/t/177/assets/carrinho.png?12627631472548691746'), -webkit-gradient(linear, left top, left bottom, color-stop(0%,#F4994A), color-stop(100%,#EF7000)); /* Chrome,Safari4+ */
+  background-image: url('//cdn.shopify.com/s/files/1/0155/7645/t/177/assets/carrinho.png?12627631472548691746'), -webkit-linear-gradient(top, #F4994A 0%,#EF7000 100%); /* Chrome10+,Safari5.1+ */
+  background-image: url('//cdn.shopify.com/s/files/1/0155/7645/t/177/assets/carrinho.png?12627631472548691746'), -o-linear-gradient(top, #F4994A 0%,#EF7000 100%); /* Opera 11.10+ */
+  background-image: url('//cdn.shopify.com/s/files/1/0155/7645/t/177/assets/carrinho.png?12627631472548691746'), -ms-linear-gradient(top, #F4994A 0%,#EF7000 100%); /* IE10+ */
+  background-image: url('//cdn.shopify.com/s/files/1/0155/7645/t/177/assets/carrinho.png?12627631472548691746'), linear-gradient(to bottom, #F4994A 0%,#EF7000 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#F4994A', endColorstr='#EF7000',GradientType=0 ); /* IE6-9 */
+}
+
+#customer-area a:link,
+#customer-area a:visited {
+  color: rgb(204,153,0); /*ORIGINAL #CC9900*/
+}
+
+#customer-area a:hover {
+  color: rgb(255,204,51); /*ORIGINAL #FFCC33*/
+  text-shadow: 0 0 2px rgb(255,204,51); /*ORIGINAL #FFCC33*/
+}
+
+#customer-area a:active {
+  color: rgb(255,204,51); /*ORIGINAL #FFCC33*/
+  text-shadow: 0 0 3px rgb(255,255,102);
+}
+
+#collection li a small {
+  background: rgb(245,245,245);
+}
+
+#collection li a h3 {
+  color: rgb(239,112,0);
+}
+
+#collection li a:link,
+#collection li a:visited {
+  color: rgb(51,51,51);
+}
+
+#collection li a:hover,
+#collection li a:active {
+  background: rgb(245,245,245);
+}
+
+#collection li a:hover small,
+#collection li a:active small {
+  background: rgb(239,112,0);
+  color: rgb(255,255,255);
+}
+
+#collection li a:hover p,
+#collection li a:active p {
+  color: rgb(102,102,102);
+}
+
+#buying-instructions {
+  background-color:#f9e8d9;
+}
+
+#cart-table thead {
+  background: rgb(220,220,220);
+}
+
+#cart-table tr {
+  border-bottom: #CCC 1px solid;
+}
+
+.item-price-col,
+.line-price-col {
+  background: rgb(245,245,245);
+}
+
+.update-cart {
+  color: white;
+}
+
+#search-title {
+  border-bottom: 1px dotted rgb(239,112,0);
+  color: rgb(239,112,0);
+}
+
+#search-input {
+  border: 1px solid rgb(153,153,153);
+}
+
+#search-input:focus {
+  border: 1px solid rgb(255,255,102);
+  box-shadow: 0 0 3px rgb(255,204,51);
+}
+
+@media only screen and (max-width: 768px) {
+  #main-nav ul li {
+    background: #000; /*ORIGINAL #000000*/
+  }
+
+  #main-nav ul li a:link,
+  #main-nav ul li a:visited {
+    /*color: #FFFFFF; /*CRIADO  */
+  }
+}

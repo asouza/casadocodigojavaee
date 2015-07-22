@@ -1,0 +1,667 @@
+.lt-ie9 .form-newsletter{
+  display: none;
+}
+.lt-ie9 .ie8{
+  display: inline;
+}
+
+.ie8{
+  display: none;
+}
+
+h1, h2, h3,
+h4, h5{
+  font-family: "Museo", Sans-serif;
+  font-weight: normal;
+}
+
+input,
+textarea {
+  outline: none;
+}
+
+small {
+  font-size: 10px;
+}
+
+.block {
+  display: block;
+}
+
+.clearfix:before,
+.clearfix:after {
+  content: "";
+  display: table;
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+.clearfix {
+  *zoom: 1;
+}
+
+body {
+  font-family: "Droid Sans", Arial, Sans-serif;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+p{
+  line-height: 1.4;
+  font-size:147%;
+}
+
+a{
+  line-height: 1.4;
+  font-size:19px;
+}
+
+h4{
+  font-size: 13px;
+}
+
+h2 {
+  font-size: 160%;
+}
+
+h3,h1{
+  font-size: 21.5px;
+}
+
+.container {
+  max-width: 1280px;
+  width:100%;
+  margin: 0 auto;
+  padding: 0 7px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.middle {
+  min-height: 350px;
+}
+
+.section-title {
+  font-size:200%;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+#layout-header {
+  width:100%;
+}
+
+.categories-nav > ul {
+  text-align: left;
+  padding-top: 5px;
+}
+
+.category {
+  display: inline-block;
+  font-size: 0;
+}
+
+.category > a {
+  display: inline-block;
+  font-size: 14px;
+  padding: .4em 1.4em;
+  margin-bottom: 5px;
+  text-decoration: none;
+}
+
+.category:first-child > a {
+  border-left: 0;
+}
+
+#logo {
+  float: left;
+  margin: 0;
+}
+
+
+#logo img {
+  display: block;
+  height: 66px;
+  padding: 11px 0;
+}
+
+#header-content {
+  float: right;
+}
+
+/*Footer*/
+
+#layout-footer {
+  padding: 25px 0;
+  clear: both;
+  width:100%;
+  font-size: 16px;
+}
+
+.footer-title {
+  margin:19px 0;
+  font-size: 16px;
+  font-family: "Museo", Sans-serif;
+}
+
+.footer-payments {
+  padding-bottom: 10px;
+  width: 15em;
+  border-radius: 5px;
+}
+
+#submit-newsletter{
+  padding: 10px 5px;
+  font-size: 16px;
+  width: 70%;
+  max-width: 200px;
+  margin-top: 10px;
+  font-family: 'Droid Sans', Arial, sans-serif;
+
+}
+
+#form-newsletter input{
+  width: 69%;
+  padding: 2% 0%;
+  margin-left: 5%;
+  border:0;
+  max-width: 200px;
+  font-family: 'Droid Sans', Arial, sans-serif;
+  border:0;
+}
+
+.ss-q-short{
+  text-indent: 10px;
+}
+
+#submit-newsletter{
+  margin-bottom: 5%;
+}
+
+#layout-footer ul {
+  list-style: none;
+  margin-left:1em;
+}
+
+#layout-footer a{
+  font-size: 13px;
+}
+
+#twitter {
+  display: block;
+  background: url('//cdn.shopify.com/s/files/1/0155/7645/t/177/assets/sprites.png?17557711475382243135') no-repeat -8px -242px;
+  width: 31px;
+  height: 31px;
+  text-indent: -9999px;
+  float: left;
+  margin: -10px 0px 0px 1%;
+}
+
+#facebook {
+  display:block;
+  background: url('//cdn.shopify.com/s/files/1/0155/7645/t/177/assets/sprites.png?17557711475382243135') no-repeat -42px -242px;
+  width: 31px;
+  height: 31px;
+  text-indent: -9999px;
+  float: left;
+  margin-left: 20px;
+  margin-top: -10px;
+}
+
+#paypal {
+  float: left;
+  margin-left: 20px;
+}
+
+#layout-footer ul .social-links{
+  padding-top: 10px;
+  margin-bottom: 0;
+}
+
+.accepts-paypal{
+  margin-left: 7px;
+}
+.accepts-pagseguro{
+  margin-left: 15px;
+}
+
+#layout-footer a {
+  text-decoration: none;
+}
+
+#social-footer .newsletter-call {
+  clear: both;
+  margin-bottom: 35px;
+  font-size:13px;
+}
+
+#collections-footer,
+#social-footer,
+#newsletter-footer {
+  width: 33%;
+  float: left;
+}
+
+.footer-text-links li {
+  margin: 0;
+  padding: 0.5em 0;
+}
+.footer-text-links li a {
+  padding: 0.5em 1em;
+}
+.footer-text-links li a:hover {
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+#customer-area {
+  float: left;
+  font-size: 12px;
+}
+
+#customer-area p,
+#customer-area nav {
+  display: inline;
+}
+
+#customer-area p {
+  margin-right: 5px;
+}
+
+#search-form {
+  float: left;
+  position: relative;
+}
+
+#search-input {
+  margin: -4px 0 0 20px;
+  padding: 2px 12px 2px 2px;
+}
+
+#search-submit {
+  position: absolute;
+  right: 3px;
+  top: 0;
+}
+
+#main-nav {
+  float: left;
+  margin-right: 20px;
+  font-size: 16px;
+}
+
+#main-nav ul {
+  float: right;
+  list-style: none;
+  margin: 0;
+}
+
+#main-nav ul li {
+  float: left;
+  margin-left: 35px;
+  padding-top: 7px;
+  height: 100%;
+}
+
+#main-nav ul li a{
+  font: 23px "Museo", Sans-serif;
+  height: 74px;
+  line-height: 74px;
+  display:block;
+}
+
+#main-nav ul li a:link,
+#main-nav ul li a:visited {
+  text-decoration: none;
+}
+
+/* Index */
+
+#home-highlight-collection{
+  margin:0;
+  overflow: hidden;
+}
+
+#home-highlight-collection li{
+  float: left;
+  position: relative;
+  margin-top: 26px;
+  width: 31.3%;
+  list-style: none;
+}
+
+#home-highlight-collection li:not(:first-child){
+    margin: 26px 0 0 3%;
+}
+
+#home-highlight-collection li a{
+  text-align: center;
+  text-decoration: none;
+  padding: 15px 0;
+}
+
+#home-highlight-collection li a h2{
+  font-size: 25px;
+  display: table-cell;
+  vertical-align: middle;
+  width: 8.8em;
+  height: 7.5em;
+  line-height: 1.7;
+  word-wrap: break-word;
+}
+
+#home-highlight-collection li a img{
+  float: left;
+  box-shadow: 0 0 5px rgba(0,0,0,.5);
+  margin-right: 1em;
+}
+
+#home-highlight-collection li a small{
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin-left: 0.5em;
+  display: block;
+  font-size:25px;
+  left: 175px;
+  bottom: 15px;
+  position: absolute;
+  text-align: center;
+  width: 55.7%;
+  line-height: 1.7;
+}
+
+.cdc-call{
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  clear:both;
+  text-align: center;
+  font-size: 33px;
+  padding-top: 4px;
+  line-height: 48px;
+  margin: 26px 0;
+}
+
+
+/* Diferenciais */
+
+#cdc-diferenciais{
+  width:100%;
+  margin:0;
+}
+
+#cdc-diferenciais li{
+  float: left;
+  list-style: none;
+  width: 47%;
+}
+
+#cdc-diferenciais li.col-left{
+  margin-right: 6%;
+}
+
+#cdc-diferenciais li h3{
+  font-size:21px;
+}
+
+#cdc-diferenciais li img{
+  float: left;
+  margin-right: 10px;
+}
+
+#cdc-diferenciais li p{
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  float: left;
+  font-size:17px;
+  padding-left:10px;
+}
+
+
+/* Collection */
+
+.collection-header {
+  width: 100%;
+  max-width: 100% !important;
+  float: left;
+  padding: 1em 0;
+  margin-bottom: 1em;
+  position: relative;
+  z-index: -1;
+}
+
+
+
+
+#collection-livros-de-java, #collection-livros-de-mobile, #collection-livros-de-ruby {
+    background-position: center center;
+}
+
+#collection-title {
+    font-size: 40px;
+    display: inline-block;
+    margin: 0;
+    padding: 1.5em 1em 1.5em 5%;
+    z-index: 1;
+}
+
+#collection {
+  list-style: none;
+  margin: 0;
+}
+
+#collection li {
+  margin: 5px;
+  padding: 15px;
+  position: relative;
+  width: 435px;
+  display:inline-block;
+}
+
+#collection li a img {
+  box-shadow: 0 0 5px rgba(0,0,0,.5);
+  float: left;
+  margin: 10px;
+}
+
+#collection li a small {
+  bottom: 25px;
+  display: block;
+  padding: 5px;
+  position: absolute;
+  right: 25px;
+}
+
+#collection li a h3 {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+
+#collection li a p {
+  font-size: 12px;
+}
+
+#collection li a:link,
+#collection li a:visited {
+  text-decoration: none;
+}
+
+#collection li a:hover img,
+#collection li a:active img {
+  box-shadow: 0 0 5px rgba(0,0,0,.75);
+}
+
+#collection li a:hover p,
+#collection li a:active p {
+  text-decoration: none;
+}
+
+#collection.related-books li{
+  width: 136px;
+  padding-left: 23px;
+  padding-right: 23px;
+  margin:0;
+}
+
+/* Cart */
+
+#cart-title {
+  font-size: 22px;
+  padding-bottom: 10px;
+  margin-bottom: 0;
+}
+
+.cart-message {
+  margin-top: 25px;
+}
+
+#cart-table {
+  margin-top: 15px;
+}
+
+#form-cart{
+  font:16px;
+}
+
+#cart-table th,
+#cart-table td {
+  padding: inherit 15px;
+  font-size: 16px;
+}
+
+.cart section.container table {
+  border: none;
+  width: 100%;
+}
+
+.cart section.container table th,
+.cart section.container table td {
+  border: none;
+}
+
+.numeric-cell {
+  text-align: center;
+}
+
+.quantity-input-cell input {
+  width: 3em;
+}
+
+.quantity-input-cell {
+  text-align: center;
+}
+
+#buying-instructions {
+  line-height:1.5;
+  font-size:19px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  padding:10px;
+  width: 100%;
+}
+
+.beta-in-price {
+  font-size: 10px;
+}
+
+#checkout{
+    height: 40px;
+    font-size: 16px;
+    border-radius: 8px;
+    padding: 0 3px 4px 33px;
+    text-transform: uppercase;
+    cursor: pointer;
+
+    background-image: url('//cdn.shopify.com/s/files/1/0155/7645/t/177/assets/carrinho.png?17557711475382243135'), #f4994a; /* Old browsers */
+    background-image: url('//cdn.shopify.com/s/files/1/0155/7645/t/177/assets/carrinho.png?17557711475382243135'), -moz-linear-gradient(top, #f4994a 0%, #ef7000 100%); /* FF3.6+ */
+    background-image: url('//cdn.shopify.com/s/files/1/0155/7645/t/177/assets/carrinho.png?17557711475382243135'), -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f4994a), color-stop(100%,#ef7000)); /* Chrome,Safari4+ */
+    background-image: url('//cdn.shopify.com/s/files/1/0155/7645/t/177/assets/carrinho.png?17557711475382243135'), -webkit-linear-gradient(top, #f4994a 0%,#ef7000 100%); /* Chrome10+,Safari5.1+ */
+    background-image: url('//cdn.shopify.com/s/files/1/0155/7645/t/177/assets/carrinho.png?17557711475382243135'), -o-linear-gradient(top, #f4994a 0%,#ef7000 100%); /* Opera 11.10+ */
+    background-image: url('//cdn.shopify.com/s/files/1/0155/7645/t/177/assets/carrinho.png?17557711475382243135'), -ms-linear-gradient(top, #f4994a 0%,#ef7000 100%); /* IE10+ */
+    background-image: url('//cdn.shopify.com/s/files/1/0155/7645/t/177/assets/carrinho.png?17557711475382243135'), linear-gradient(to bottom, #f4994a 0%,#ef7000 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4994a', endColorstr='#ef7000',GradientType=0 ); /* IE6-9 */
+
+    background-position: 0 0;
+    background-repeat: no-repeat; 
+    font-family: "Droid Sans", Sans-serif;
+    font-weight: 100;
+}
+
+.update-cart {
+  background: url('//cdn.shopify.com/s/files/1/0155/7645/t/177/assets/refresh.png?17557711475382243135') no-repeat;
+  height: 24px;
+  width: 24px;
+  border: 0px;
+  cursor: pointer;
+}
+/* Search */
+
+#search-title {
+  font-size:22px;
+  padding-bottom: 10px;
+  margin-bottom: 0;
+  z-index:4;
+}
+
+.search-message {
+  margin-top: 25px;
+}
+
+/* Login */
+
+#recover-password-area {
+  display: none;
+}
+
+/* Sprites */
+
+.sprite{
+  float: left;
+  margin-right: 10px;
+}
+
+.col-left .sprite{
+    margin-bottom: 3.5%;
+}
+
+#sprite-atualizacoes {
+  background: url('//cdn.shopify.com/s/files/1/0155/7645/t/177/assets/sprites.png?17557711475382243135')no-repeat -7px -5px;
+  width: 48px;
+  height: 44px;
+}
+
+#sprite-drm {
+  background: url('//cdn.shopify.com/s/files/1/0155/7645/t/177/assets/sprites.png?17557711475382243135') no-repeat -7px -57px;
+  width: 48px;
+  height: 48px;
+}
+
+#sprite-renome {
+  background: url('//cdn.shopify.com/s/files/1/0155/7645/t/177/assets/sprites.png?17557711475382243135') no-repeat -7px -117px;
+  width: 79px;
+  height: 57px;
+}
+
+#sprite-caelum {
+  background: url('//cdn.shopify.com/s/files/1/0155/7645/t/177/assets/sprites.png?17557711475382243135')no-repeat -7px -186px;
+  width: 70px;
+  height: 53px;
+}
+
+.breadcrumb {
+    display: inline;
+}
+
+.breadcrumb > a {
+    font-size: .9em;
+}
+
+.breadcrumbs {
+    display: block;
+}
