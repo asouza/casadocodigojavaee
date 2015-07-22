@@ -14,6 +14,7 @@ import javax.transaction.Transactional;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.QueryParam;
+import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.container.AsyncResponse;
 import javax.ws.rs.container.Suspended;
 import javax.ws.rs.core.Context;
@@ -62,7 +63,7 @@ public class PaymentResource {
 				ar.resume(response);
 
 			} catch (Exception exception) {
-				ar.resume(exception);
+				ar.resume(new WebApplicationException(exception));
 			}
 		});
 	}
