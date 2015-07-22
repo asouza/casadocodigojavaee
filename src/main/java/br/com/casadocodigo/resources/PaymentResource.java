@@ -5,12 +5,8 @@ import java.net.URI;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import javax.annotation.Resource;
 import javax.inject.Inject;
-import javax.jms.Destination;
-import javax.jms.JMSContext;
 import javax.servlet.ServletContext;
-import javax.transaction.Transactional;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.QueryParam;
@@ -29,7 +25,7 @@ import br.com.casadocodigo.models.PaymentGateway;
 @Path("payment")
 public class PaymentResource {
 
-	private ExecutorService executor = Executors.newFixedThreadPool(50);
+	private static ExecutorService executor = Executors.newFixedThreadPool(50);
 	@Context
 	private ServletContext ctx;
 	@Inject
