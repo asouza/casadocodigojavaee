@@ -102,7 +102,6 @@
 	</nav>
 
 	<section id="index-section" class="container middle">
-		<o:cache>
 			<ul id="home-highlight-collection">
 				<ui:repeat var="book" value="#{homeBean.lastReleases()}">
 					<li class="col-left"><a href="#{request.contextPath}/site/detalhe.xhtml?id=#{book.id}"
@@ -114,11 +113,9 @@
 					</li>
 				</ui:repeat>
 			</ul>
-		</o:cache>
 
 		<h1 class="cdc-call">Últimos dias com os preços promocionais.
 			Aproveite!</h1>
-		<o:cache>
 			<ul class="clearfix book-collection">
 	
 				<ui:repeat var="book" value="#{homeBean.olderBooks()}">
@@ -132,7 +129,6 @@
 				</a></li>
 				</ui:repeat>
 			</ul>
-		</o:cache>
 
 		<h2 class="cdc-call">Diferenciais da Casa do Código</h2>
 
