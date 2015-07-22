@@ -80,9 +80,7 @@
       <div class="fieldset" data-email-check='#checkout_email_suggestion'>
         <div class="field field--required">
           <label for="checkout_email">E-mail</label>
-          <input autocapitalize="off" autocomplete="shipping email" jsf:id="email" data-autofocus="true" jsf:value="#{checkoutBean.systemUser.email}" placeholder="E-mail" size="30" spellcheck="false" type="email">
-          		<f:validateBean validationGroups="br.com.casadocodigo.models.validation.groups.BuyerGroup"/>
-          </input>
+          <input autocapitalize="off" autocomplete="shipping email" jsf:id="email" data-autofocus="true" jsf:value="#{checkoutBean.systemUser.email}" placeholder="E-mail" size="30" spellcheck="false" type="email"/>          
 			<o:messages for="email" var="message">
 			    <p class="field_error-message">#{message.summary}</p>
 			</o:messages>          
