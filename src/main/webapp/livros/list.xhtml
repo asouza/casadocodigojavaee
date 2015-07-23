@@ -26,6 +26,12 @@
 				<f:facet name="header">Sumário</f:facet>				
 				<h:outputLink value="#{book.summaryPath}">#{book.summaryPath}</h:outputLink>							
 			</h:column>
+			<h:column>
+				<f:facet name="header">Atualizar</f:facet>
+				<h:form>				
+					<h:commandButton action="#{adminBooksBean.update(book.id)}" value="Atualizar" />
+				</h:form>							
+			</h:column>
 		</h:dataTable>
 	</h:body>
 </html>

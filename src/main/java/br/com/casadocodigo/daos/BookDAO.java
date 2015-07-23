@@ -30,7 +30,7 @@ public class BookDAO {
 	}
 
 	public List<Book> list() {
-		return manager.createQuery("select b from Book b join fetch b.authors",
+		return manager.createQuery("select distinct(b) from Book b join fetch b.authors",
 				Book.class).getResultList();
 	}
 
@@ -40,6 +40,7 @@ public class BookDAO {
 						"select b from Book b where b.releaseDate <= now() order by b.id desc",
 						Book.class).setMaxResults(3);
 		query.setHint(QueryHints.HINT_CACHEABLE, true);
+		query.setHint(QueryHints.HINT_CACHE_REGION, "home");
 		return query.getResultList();
 	}
 
@@ -48,6 +49,7 @@ public class BookDAO {
 				.createQuery("select b from Book b join fetch b.authors",
 						Book.class).setMaxResults(number);
 		query.setHint(QueryHints.HINT_CACHEABLE, true);
+		query.setHint(QueryHints.HINT_CACHE_REGION, "home");
 		return query.getResultList();
 	}
 

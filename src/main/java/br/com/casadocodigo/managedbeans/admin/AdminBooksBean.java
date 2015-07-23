@@ -52,6 +52,14 @@ public class AdminBooksBean {
 		messagesHelper.addFlash(new FacesMessage("Livro gravado com sucesso"));
 		return "/livros/list?faces-redirect=true";
 	}
+	
+	@Transactional
+	public String update(Integer id) {
+		//apenas para forcar updates nos livros
+		Book book = productDAO.findById(id);
+		book.setDescription(book.getDescription() + "- atualizando");
+		return "/livros/list?faces-redirect=true";
+	}
 
 	public Book getProduct() {
 		return product;
