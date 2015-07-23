@@ -102,6 +102,7 @@
 	</nav>
 
 	<section id="index-section" class="container middle">
+		<o:cache scope="application">
 			<ul id="home-highlight-collection">
 				<ui:repeat var="book" value="#{homeBean.lastReleases()}">
 					<li class="col-left"><a href="#{request.contextPath}/site/detalhe.xhtml?id=#{book.id}"
@@ -113,22 +114,25 @@
 					</li>
 				</ui:repeat>
 			</ul>
+		</o:cache>			
 
 		<h1 class="cdc-call">Últimos dias com os preços promocionais.
 			Aproveite!</h1>
-			<ul class="clearfix book-collection">
-	
-				<ui:repeat var="book" value="#{homeBean.olderBooks()}">
-				<li><a href="#{request.contextPath}/site/detalhe.xhtml?id=#{book.id}" class="block clearfix">
-						<h2 class="product-title">#{book.title}</h2> <img width="143"
-						height="202"
-						src="#{book.coverPath}"
-						alt="#{book.title}"
-						title="#{book.title}"/><small
-						class="buy-button">Compre</small>
-				</a></li>
-				</ui:repeat>
-			</ul>
+			<o:cache scope="application">
+				<ul class="clearfix book-collection">
+		
+					<ui:repeat var="book" value="#{homeBean.olderBooks()}">
+					<li><a href="#{request.contextPath}/site/detalhe.xhtml?id=#{book.id}" class="block clearfix">
+							<h2 class="product-title">#{book.title}</h2> <img width="143"
+							height="202"
+							src="#{book.coverPath}"
+							alt="#{book.title}"
+							title="#{book.title}"/><small
+							class="buy-button">Compre</small>
+					</a></li>
+					</ui:repeat>
+				</ul>
+			</o:cache>
 
 		<h2 class="cdc-call">Diferenciais da Casa do Código</h2>
 
