@@ -1,9 +1,13 @@
 package br.com.casadocodigo.resources;
 
-import java.net.URI;
 import java.util.List;
 
-import javax.inject.Inject;
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+import javax.ejb.Stateful;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.PersistenceContextType;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -18,17 +22,25 @@ import br.com.casadocodigo.daos.BookDAO;
 import br.com.casadocodigo.models.Book;
 
 @Path("books")
-@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+@Stateful
+@Produces({ MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
 public class BooksResource {
 
-	@Inject
+	@PersistenceContext(type=PersistenceContextType.EXTENDED)
+	private EntityManager entityManager;
 	private BookDAO bookDAO;
+	
+	@PostConstruct
+	private void loadDAO(){
+		this.bookDAO = new BookDAO(entityManager);
+	}
+	
 
-	@GET
-	@Wrapped(element = "books")
-	public List<Book> lastBooks() {
+	@GET		
+	public List<Book> lastBooksJson() {
 		return bookDAO.lastReleases();
 	}
+	
 
 	@Path("{id}")
 	@GET
