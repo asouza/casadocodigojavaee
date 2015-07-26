@@ -36,7 +36,8 @@ public class BooksResource {
 	}
 	
 
-	@GET		
+	@GET
+	@Wrapped(element="books")
 	public List<Book> lastBooksJson() {
 		return bookDAO.lastReleases();
 	}
