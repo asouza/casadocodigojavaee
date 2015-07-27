@@ -5,9 +5,13 @@ import java.net.URI;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import javax.annotation.Resource;
 import javax.inject.Inject;
+import javax.jms.Destination;
+import javax.jms.JMSContext;
+import javax.jms.JMSProducer;
 import javax.servlet.ServletContext;
-import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.WebApplicationException;
@@ -32,23 +36,25 @@ public class PaymentResource {
 	private CheckoutDAO checkoutDao;
 	@Inject
 	private PaymentGateway paymentGateway;
+	
 	@Inject
-	private BroadcastCheckout broadcastCheckout;
+	private JMSContext jmsContext;
+	@Resource(name = "java:/jms/topics/checkoutsTopic")
+	private Destination checkoutsTopic;
 	
 
-	@GET
+	@POST
 	public void pay(@Suspended final AsyncResponse ar,@QueryParam("uuid") String uuid) {
 		String contextPath = ctx.getContextPath();
 		Checkout checkout = checkoutDao.findByUuid(uuid);
-		
+		JMSProducer producer = jmsContext.createProducer();
 		executor.submit(() -> {
 			
 			BigDecimal total = checkout.getValue();
 
 			try {
 				paymentGateway.pay(total);
-				
-				broadcastCheckout.execute(checkout);
+				producer.send(checkoutsTopic, checkout.getUuid());
 
 				URI redirectURI = UriBuilder
 						.fromUri(contextPath + "/site/index.xhtml")

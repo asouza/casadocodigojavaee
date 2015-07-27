@@ -1,4 +1,4 @@
-curl http://localhost:8080/casadocodigo/services/payment?uuid=0d148a40-bf19-4383-a051-93157c44458d
+curl -X POST http://localhost:8080/casadocodigo/services/payment?uuid=1e7fa05a-6c8f-498d-a549-a8dcf5e9d179
 
 
 curl -H "Accept:application/json" -X GET "http://localhost:8080/casadocodigo/services/books"
