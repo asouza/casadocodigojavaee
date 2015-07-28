@@ -3,7 +3,7 @@
 	<form method="POST" action="${request.getContextPath()}/j_security_check">
 		<div>
 	     <label for="email">Email</label>
-         <input type="text" name="j_username" id="email"/>
+         <input type="text" name="j_username" value="${param.j_username}" id="email"/>
         </div>
 		<div>
 	     <label for="password">Senha</label>
