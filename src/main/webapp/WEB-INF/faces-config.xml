@@ -8,7 +8,11 @@
 		<resource-bundle>
 			<base-name>messages</base-name>
 			<var>msg</var>
-		</resource-bundle>		
+		</resource-bundle>	
+		<locale-config>
+			<default-locale>pt</default-locale>
+			<supported-locale>en</supported-locale>
+		</locale-config>	
 	</application>
 	<lifecycle>
 		<phase-listener>br.com.casadocodigo.debug.DebugPhaseListener</phase-listener>

@@ -58,16 +58,14 @@
 					
 					<ul class="clearfix">
 						<c:if test="#{currentUser.hasRole('ADMIN')}">
-							<li><a href="#{request.contextPath}/livros/list.xhtml" rel="nofollow">Administração</a></li>
+							<li><a href="#{request.contextPath}/livros/list.xhtml" rel="nofollow">#{msg.menuPrincipal_admin}</a></li>
 						</c:if>
 
-						<li><a href="/cart" rel="nofollow">Seu carrinho </a></li>
+						<li><a href="/cart" rel="nofollow">#{msg.menuPrincipal_seuCarrinho}</a></li>
 
-						<li><a href="/pages/sobre-a-casa-do-codigo" rel="nofollow">Sobre
-								nós </a></li>
+						<li><a href="/pages/sobre-a-casa-do-codigo" rel="nofollow">#{msg.menuPrincipal_sobre}</a></li>
 
-						<li><a href="/pages/perguntas-frequentes" rel="nofollow">Perguntas
-								Frequentes </a></li>
+						<li><a href="/pages/perguntas-frequentes" rel="nofollow">#{msg.menuPrincipal_perguntasFrequentes}</a></li>
 					</ul>
 				</nav>
 			</div>
