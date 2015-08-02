@@ -19,4 +19,5 @@ target
 .settings
 .tern-project
 src/main/java/br/com/casadocodigo/conf/MailConfiguration.java
+openshift.config
 
