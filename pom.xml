@@ -136,7 +136,16 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-orm</artifactId>
 			<version>4.1.0.RELEASE</version>
-		</dependency>		
+		</dependency>	
+		
+		<!-- javaee7 api -->
+		
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+			<version>7.0</version>
+		</dependency>
+			
 	</dependencies>
 	<build>
 		<finalName>casadocodigo</finalName>
