@@ -1,0 +1,23 @@
+<html xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+<h:body>
+	<h:messages />
+	<h:form>
+		<div>
+			<h:outputLabel>Titulo</h:outputLabel>
+			<h:inputText value="#{adminSalesBean.sale.title}" label="titulo"/>
+		</div>
+		<div>
+			<h:outputLabel for="livro">Livro</h:outputLabel>
+			<h:selectOneMenu value="#{adminSalesBean.sale.book.id}" id="livro">
+				<f:selectItems value="#{adminListBooksBean.books}" var="book"
+					itemLabel="#{book.title}" itemValue="#{book.id}" />
+			</h:selectOneMenu>
+		</div>
+		
+		<h:commandButton value="Gravar" action="#{adminSalesBean.save}" />
+	</h:form>
+</h:body>
+</html>

@@ -50,7 +50,7 @@ public class AdminBooksBean {
 		productDAO.save(product);
 
 		messagesHelper.addFlash(new FacesMessage("Livro gravado com sucesso"));
-		return "/livros/list?faces-redirect=true";
+		return "/admin/livros/list?faces-redirect=true";
 	}
 	
 	@Transactional
@@ -58,7 +58,7 @@ public class AdminBooksBean {
 		//apenas para forcar updates nos livros
 		Book book = productDAO.findById(id);
 		book.setDescription(book.getDescription() + "- atualizando");
-		return "/livros/list?faces-redirect=true";
+		return "/admin/livros/list?faces-redirect=true";
 	}
 
 	public Book getProduct() {

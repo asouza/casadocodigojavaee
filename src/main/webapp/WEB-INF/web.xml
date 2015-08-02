@@ -42,7 +42,7 @@
 		<web-resource-collection>
 			<web-resource-name>administracao</web-resource-name>
 			<description>Urls que levam para paginas de administracao</description>
-			<url-pattern>/livros/*</url-pattern>
+			<url-pattern>/admin/*</url-pattern>
 			<http-method>GET</http-method>
 			<http-method>POST</http-method>
 		</web-resource-collection>
@@ -53,5 +53,9 @@
 	<security-role>
 		<role-name>ADMIN</role-name>		
 	</security-role>
+	
+	<session-config>
+		<session-timeout>15</session-timeout>
+	</session-config>
 
 </web-app>
