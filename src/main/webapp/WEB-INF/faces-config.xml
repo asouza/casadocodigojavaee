@@ -15,6 +15,6 @@
 		</locale-config>	
 	</application>
 	<lifecycle>
-		<phase-listener>br.com.casadocodigo.debug.DebugPhaseListener</phase-listener>
+		<phase-listener>br.com.casadocodigo.loja.debug.DebugPhaseListener</phase-listener>
 	</lifecycle>	
 </faces-config>		

@@ -1,4 +1,4 @@
-package br.com.casadocodigo.infra;
+package br.com.casadocodigo.loja.infra;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.faces.application.FacesMessage;

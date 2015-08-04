@@ -1,4 +1,4 @@
-package br.com.casadocodigo.conf;
+package br.com.casadocodigo.loja.conf;
 
 import javax.jms.JMSDestinationDefinition;
 

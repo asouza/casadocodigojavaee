@@ -1,4 +1,4 @@
-package br.com.casadocodigo.debug;
+package br.com.casadocodigo.loja.debug;
 
 import javax.faces.event.PhaseEvent;
 import javax.faces.event.PhaseId;

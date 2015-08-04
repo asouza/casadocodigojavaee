@@ -3,7 +3,7 @@ package br.com.casadocodigo.managedbeans.site;
 import javax.enterprise.inject.Model;
 import javax.inject.Inject;
 
-import br.com.casadocodigo.daos.BookDAO;
+import br.com.casadocodigo.loja.daos.BookDAO;
 import br.com.casadocodigo.models.Book;
 import br.com.casadocodigo.models.ShoppingCart;
 import br.com.casadocodigo.models.ShoppingItem;

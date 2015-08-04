@@ -1,4 +1,4 @@
-package br.com.casadocodigo.converters;
+package br.com.casadocodigo.loja.converters;
 
 import java.lang.reflect.Field;
 import java.util.Arrays;

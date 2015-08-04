@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.transaction.Transactional;
 import javax.ws.rs.Path;
 
-import br.com.casadocodigo.daos.CheckoutDAO;
-import br.com.casadocodigo.daos.SystemUserDAO;
+import br.com.casadocodigo.loja.daos.CheckoutDAO;
+import br.com.casadocodigo.loja.daos.SystemUserDAO;
 import br.com.casadocodigo.models.Checkout;
 import br.com.casadocodigo.models.ShoppingCart;
 import br.com.casadocodigo.models.SystemUser;

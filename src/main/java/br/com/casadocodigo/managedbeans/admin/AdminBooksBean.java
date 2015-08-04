@@ -6,9 +6,9 @@ import javax.inject.Inject;
 import javax.servlet.http.Part;
 import javax.transaction.Transactional;
 
-import br.com.casadocodigo.daos.BookDAO;
-import br.com.casadocodigo.infra.FileSaver;
-import br.com.casadocodigo.infra.MessagesHelper;
+import br.com.casadocodigo.loja.daos.BookDAO;
+import br.com.casadocodigo.loja.infra.FileSaver;
+import br.com.casadocodigo.loja.infra.MessagesHelper;
 import br.com.casadocodigo.models.Book;
 
 @Model

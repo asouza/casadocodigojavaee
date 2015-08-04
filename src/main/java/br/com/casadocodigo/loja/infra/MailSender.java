@@ -1,4 +1,4 @@
-package br.com.casadocodigo.infra;
+package br.com.casadocodigo.loja.infra;
 
 import javax.annotation.Resource;
 import javax.enterprise.context.ApplicationScoped;

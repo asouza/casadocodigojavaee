@@ -1,4 +1,4 @@
-package br.com.casadocodigo.listeners.checkout;
+package br.com.casadocodigo.loja.listeners.checkout;
 
 import javax.ejb.ActivationConfigProperty;
 import javax.ejb.MessageDriven;
@@ -10,8 +10,8 @@ import javax.jms.TextMessage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import br.com.casadocodigo.daos.CheckoutDAO;
-import br.com.casadocodigo.infra.MailSender;
+import br.com.casadocodigo.loja.daos.CheckoutDAO;
+import br.com.casadocodigo.loja.infra.MailSender;
 import br.com.casadocodigo.models.Checkout;
 
 @MessageDriven(activationConfig = {

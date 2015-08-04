@@ -21,7 +21,7 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriBuilder;
 
-import br.com.casadocodigo.daos.CheckoutDAO;
+import br.com.casadocodigo.loja.daos.CheckoutDAO;
 import br.com.casadocodigo.models.BroadcastCheckout;
 import br.com.casadocodigo.models.Checkout;
 import br.com.casadocodigo.models.PaymentGateway;

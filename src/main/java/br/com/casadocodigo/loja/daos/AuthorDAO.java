@@ -1,4 +1,4 @@
-package br.com.casadocodigo.daos;
+package br.com.casadocodigo.loja.daos;
 
 import java.util.List;
 

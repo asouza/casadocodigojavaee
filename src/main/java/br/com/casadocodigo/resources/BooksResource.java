@@ -18,7 +18,7 @@ import javax.ws.rs.core.Response;
 
 import org.jboss.resteasy.annotations.providers.jaxb.Wrapped;
 
-import br.com.casadocodigo.daos.BookDAO;
+import br.com.casadocodigo.loja.daos.BookDAO;
 import br.com.casadocodigo.models.Book;
 
 @Path("books")
