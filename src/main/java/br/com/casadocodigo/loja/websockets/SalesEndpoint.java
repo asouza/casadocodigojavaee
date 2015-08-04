@@ -1,6 +1,8 @@
 package br.com.casadocodigo.loja.websockets;
 
 import javax.inject.Inject;
+import javax.websocket.CloseReason;
+import javax.websocket.OnClose;
 import javax.websocket.OnOpen;
 import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
@@ -9,11 +11,16 @@ import javax.websocket.server.ServerEndpoint;
 public class SalesEndpoint {
 	
 	@Inject
-	private ConnectedUsers connectedUser;
+	private ConnectedUsers connectedUsers;
 	
 	@OnOpen
 	public void onNewUser(Session session){
-		System.out.println("Principal "+session.getUserPrincipal());
-		System.out.println("Adicionou? "+connectedUser.add(session));
+		connectedUsers.add(session);
+	}
+	
+	@OnClose
+	public void onClose(Session session,CloseReason closeReason) {
+		System.out.println(connectedUsers.remove(session));
+		System.out.println(closeReason.getCloseCode());
 	}
 }

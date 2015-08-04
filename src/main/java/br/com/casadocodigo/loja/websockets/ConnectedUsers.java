@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.websocket.RemoteEndpoint.Basic;
 import javax.websocket.Session;
 
 import org.slf4j.Logger;
@@ -24,11 +25,18 @@ public class ConnectedUsers {
 			for (Session user : remoteUsers) {
 				if (user.isOpen()) {
 					try {
-						user.getBasicRemote().sendText(message);
+						Basic basicRemote = user.getBasicRemote();
+						basicRemote.sendText(message);
 					} catch (IOException e) {
 						logger.error("Não foi possivel enviar mensagem para um cliente, {}",e);
 					}
+				} else {
+					System.out.println("cliente nao esta mais aberto");
 				}
 			}
+	}
+
+	public boolean remove(Session session) {
+		return remoteUsers.remove(session);
 	}
 }
