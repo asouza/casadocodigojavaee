@@ -2,10 +2,9 @@ package br.com.casadocodigo.resources;
 
 import java.math.BigDecimal;
 import java.net.URI;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 import javax.annotation.Resource;
+import javax.enterprise.concurrent.ManagedExecutorService;
 import javax.inject.Inject;
 import javax.jms.Destination;
 import javax.jms.JMSContext;
@@ -22,14 +21,12 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriBuilder;
 
 import br.com.casadocodigo.loja.daos.CheckoutDAO;
-import br.com.casadocodigo.models.BroadcastCheckout;
 import br.com.casadocodigo.models.Checkout;
 import br.com.casadocodigo.models.PaymentGateway;
 
 @Path("payment")
 public class PaymentResource {
 
-	private static ExecutorService executor = Executors.newFixedThreadPool(50);
 	@Context
 	private ServletContext ctx;
 	@Inject
@@ -41,6 +38,8 @@ public class PaymentResource {
 	private JMSContext jmsContext;
 	@Resource(name = "java:/jms/topics/checkoutsTopic")
 	private Destination checkoutsTopic;
+	@Resource(name = "java:comp/DefaultManagedExecutorService")
+	private ManagedExecutorService managedExecutorService;
 	
 
 	@POST
@@ -48,7 +47,7 @@ public class PaymentResource {
 		String contextPath = ctx.getContextPath();
 		Checkout checkout = checkoutDao.findByUuid(uuid);
 		JMSProducer producer = jmsContext.createProducer();
-		executor.submit(() -> {
+		managedExecutorService.submit(() -> {
 			
 			BigDecimal total = checkout.getValue();
 
