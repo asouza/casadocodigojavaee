@@ -2,8 +2,6 @@ package br.com.casadocodigo.loja.models;
 
 import java.math.BigDecimal;
 
-import br.com.casadocodigo.models.Checkout;
-
 public class InvoiceData  {
 
 	private BigDecimal value;

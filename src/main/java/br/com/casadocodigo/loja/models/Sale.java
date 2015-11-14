@@ -3,8 +3,6 @@ package br.com.casadocodigo.loja.models;
 import javax.json.Json;
 import javax.json.JsonObjectBuilder;
 
-import br.com.casadocodigo.models.Book;
-
 public class Sale {
 
 	private String title;

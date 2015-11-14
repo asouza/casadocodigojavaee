@@ -12,8 +12,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import br.com.casadocodigo.loja.daos.CheckoutDAO;
+import br.com.casadocodigo.loja.models.Checkout;
 import br.com.casadocodigo.loja.services.InvoiceGenerator;
-import br.com.casadocodigo.models.Checkout;
 
 @MessageDriven(activationConfig = {
 		@ActivationConfigProperty(

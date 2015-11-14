@@ -3,7 +3,7 @@ package br.com.casadocodigo.loja.daos;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import br.com.casadocodigo.models.SystemUser;
+import br.com.casadocodigo.loja.models.SystemUser;
 
 public class SystemUserDAO {
 

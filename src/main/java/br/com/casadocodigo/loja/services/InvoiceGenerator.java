@@ -4,8 +4,8 @@ import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
 
+import br.com.casadocodigo.loja.models.Checkout;
 import br.com.casadocodigo.loja.models.InvoiceData;
-import br.com.casadocodigo.models.Checkout;
 
 public class InvoiceGenerator {
 

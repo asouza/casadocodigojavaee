@@ -5,7 +5,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import br.com.casadocodigo.models.Author;
+import br.com.casadocodigo.loja.models.Author;
 
 public class AuthorDAO {
 

@@ -12,7 +12,7 @@ import org.slf4j.LoggerFactory;
 
 import br.com.casadocodigo.loja.daos.CheckoutDAO;
 import br.com.casadocodigo.loja.infra.MailSender;
-import br.com.casadocodigo.models.Checkout;
+import br.com.casadocodigo.loja.models.Checkout;
 
 @MessageDriven(activationConfig = {
 		@ActivationConfigProperty(

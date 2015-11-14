@@ -9,7 +9,7 @@ import javax.persistence.TypedQuery;
 
 import org.hibernate.jpa.QueryHints;
 
-import br.com.casadocodigo.models.Book;
+import br.com.casadocodigo.loja.models.Book;
 
 public class BookDAO {
 
