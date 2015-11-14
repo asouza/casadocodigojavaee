@@ -5,8 +5,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-
 import br.com.casadocodigo.loja.models.SystemRole;
 import br.com.casadocodigo.loja.models.SystemUser;
 
@@ -37,7 +35,7 @@ public class AdminSystemUserBean {
 
 	@Transactional
 	public void save() {
-		systemUser.setPassword(new BCryptPasswordEncoder().encode(rawPassword));
+		systemUser.setPassword(PassGenerator.generate(rawPassword));
 		systemUser.add(new SystemRole(AllowedRoles.ROLE_ADMIN.name()));
 		entityManager.persist(systemUser);
 	}

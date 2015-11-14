@@ -3,10 +3,8 @@ package br.com.casadocodigo.loja.models;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-import org.springframework.security.core.GrantedAuthority;
-
 @Entity
-public class SystemRole implements GrantedAuthority {
+public class SystemRole {
 
 	@Id
 	private String name;
@@ -17,11 +15,6 @@ public class SystemRole implements GrantedAuthority {
 
 	public SystemRole(String name) {
 		this.name = name;
-	}
-
-	@Override
-	public String getAuthority() {
-		return name;
 	}
 
 	@Override
