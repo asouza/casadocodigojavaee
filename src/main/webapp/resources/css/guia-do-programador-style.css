@@ -1,0 +1,43 @@
+
+
+
+
+#product-highlight {
+  color: #2F70AA;
+}
+
+.product-title {
+  text-shadow: -1px -1px #21527F,
+               1px 1px rgb(255,255,255);
+}
+
+.product-author span {
+  color: #2F70AA;
+}
+
+.buy-options {
+  background: #2F70AA;
+}
+
+.buy-option {
+  background: #C0E6FF;
+}
+
+.variant-price {
+  color: #2F70AA;
+}
+
+.frete {
+  color: #2F70AA;
+}
+
+.submit-image {
+    background: #6da1cd; /* Old browsers */
+    background: -moz-linear-gradient(top, #6da1cd 0%, #72a3cf 2%, #70a2cf 36%, #669ccb 44%, #4485bf 64%, #4183be 70%, #4284bf 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#6da1cd), color-stop(2%,#72a3cf), color-stop(36%,#70a2cf), color-stop(44%,#669ccb), color-stop(64%,#4485bf), color-stop(70%,#4183be), color-stop(100%,#4284bf)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #6da1cd 0%,#72a3cf 2%,#70a2cf 36%,#669ccb 44%,#4485bf 64%,#4183be 70%,#4284bf 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #6da1cd 0%,#72a3cf 2%,#70a2cf 36%,#669ccb 44%,#4485bf 64%,#4183be 70%,#4284bf 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #6da1cd 0%,#72a3cf 2%,#70a2cf 36%,#669ccb 44%,#4485bf 64%,#4183be 70%,#4284bf 100%); /* IE10+ */
+    background: linear-gradient(to bottom, #6da1cd 0%,#72a3cf 2%,#70a2cf 36%,#669ccb 44%,#4485bf 64%,#4183be 70%,#4284bf 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6da1cd', endColorstr='#4284bf',GradientType=0 ); /* IE6-9 */    
+}

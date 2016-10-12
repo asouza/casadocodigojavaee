@@ -1,0 +1,32 @@
+<html xmlns="http://www.w3.org/1999/xhtml"	
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:o="http://omnifaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core">
+<!--<![endif]-->
+<f:view locale="#{i18nBean.locale}"/>
+<head>
+<ui:include src="head.xhtml"/>
+
+<ui:insert name="extraCss"/>	
+
+</head>
+<body class="#{bodyClass}">
+
+	<ui:include src="header.xhtml"/>
+
+	<ui:insert name="body"/>
+
+	<ui:include src="footer.xhtml"/>
+	<script>
+		var salesChannel = new WebSocket("ws://localhost:8080/#{request.contextPath}/channel/sales");
+		salesChannel.onmessage = function (message) {	
+			var newSale = JSON.parse(message.data);		 
+			if(confirm("Quer participar da seguinte promocao: "+newSale.title+"?")){
+			 document.location.href = "#{request.contextPath}/site/detalhe.xhtml?id="+newSale.bookId;
+			} 
+		};
+	</script>
+</body>
+</html>

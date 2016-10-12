@@ -1,0 +1,415 @@
+/*
+.book-collection li
+Usar width % + padding % de acordo com essas quantidades:
+1124 - 5
+ 900 - 4
+ 728 - 3
+ 550 - 2
+ 455 - 1
+*/
+
+@media print { }
+
+@media only screen and (max-width: 1280px){
+    .container {
+        max-width: 1124px;
+    }
+
+    #home-highlight-collection li a small{
+        margin-left: 0em;
+        clear: left;
+        position: static;
+        width: 100%;
+    }
+
+    #home-highlight-collection li a h2{
+        font-size: 23px;
+        height: auto;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    #home-highlight-collection li a img {
+        margin-bottom: .5em;
+        margin-right: 0em;
+        float: none;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    .book-collection li {
+        padding: 0 1.58%;
+        /*width: 16.66%;*/
+    }
+
+}
+
+@media only screen and (max-width: 1124px) {
+
+    .container{
+        max-width: 960px;
+    }
+
+    #home-highlight-collection li a{
+        text-align: center;
+    }
+
+     #home-highlight-collection li a img{
+        float: none;
+        margin-bottom: .4em;
+        margin-right: 0;
+     }
+
+    #home-highlight-collection li a small{
+        font-size: 17px;
+        line-height: 2em;
+    }
+
+    #home-highlight-collection li a h2 {
+        display: table-cell;
+        height: 3em;
+        line-height: 1.5em;
+        width: 13em;
+    }
+
+    .book-collection li {
+        padding: 0 2%;
+        width: 20%;
+    }
+
+}
+
+/*@media only screen and (max-width: 992px) {
+    /* listagem de livros *
+    .book-collection li {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+}
+
+*/
+@media only screen and (max-width: 960px) {
+    .container {
+        max-width: 900px;
+    }
+
+    .book-collection li {
+        padding: 0 1.7%;
+    }
+}
+
+@media only screen and (min-width: 940px) {
+    #cdc-diferenciais ul li{
+        width:100%;
+    }
+    #cdc-diferenciais ul li p{
+        width:70%;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+
+    #main-nav {
+        margin:0;
+    }
+
+    #main-nav ul li a{
+        font-size: 18px;
+    }
+
+    /* listagem de livros */
+
+    /* Destaques */
+
+    #cdc-diferenciais li p{
+      width:70%;
+    }
+
+    .container {
+        max-width: 830px;
+    }
+
+    .book-collection li {
+        padding: 0 3.4%;
+        width: 25%;
+    }
+
+}
+
+@media only screen and (max-width: 830px) {
+
+    .container {
+        max-width: 768px;
+    }
+
+    .book-collection li {
+        padding: 0 2.7%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+
+    .container {
+        max-width: 728px;
+    }
+
+    #home-highlight-collection li:not(:first-child) {
+        margin: 26px auto;
+    }
+
+    .book-collection li {
+        padding: 0 2%;
+    }
+
+    #logo a {
+        background-size: 100%;
+        width: 200px;
+    }
+    /* footer */
+    #collections-footer {
+        width:50%;
+    }
+    #social-footer {
+        width:50%;
+    }
+    #newsletter-footer {
+        clear:left;
+        width:100%;
+    }
+    #newsletter-footer p.newsletter-call {
+        margin-bottom:20px;
+    }
+
+    #home-highlight-collection li{
+        width: 100%;
+    }
+
+     #home-highlight-collection li a img{
+        float: left;
+        margin-right: 20px;
+        margin-bottom: 0;
+     }
+
+    #home-highlight-collection li a small{
+        margin-left: .5em;
+        position: absolute;
+        font-size: 25px;
+        width: 253px
+    }
+
+    #home-highlight-collection li a h2{
+	   display: block;
+	   height: auto;
+       width: auto;
+       font-size: 25px;
+       text-align: left;
+    }
+
+        /* cabe��alho */
+    #header-content {
+        float:none;
+        margin-top:2%;
+        margin-bottom:2%;
+    }
+    #main-nav {
+        float:right;
+        width: 50%;
+        margin-right:0;
+    }
+    #main-nav ul {
+        width: 100%;
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+    #main-nav ul li {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        /*background: rgba(65,51,166,0.55);*/
+        margin: 0 0 7px 0;
+        padding: 7px 0;
+        width:100%;
+        float:none;
+        border:0;
+    }
+
+    #main-nav ul li:hover {
+        border:0;
+    }
+
+    #main-nav ul li a {
+        height:40px;
+        line-height:40px;
+    }
+
+    #main-nav ul li:first-child{
+        padding-left: 0;
+    }
+
+    #logo {
+        margin: 0 16px 0 0;
+        /*width:45%;*/
+    }
+
+    #logo a {
+        margin: 10% 0;
+        height: 75px;
+        width:83%;
+    }
+
+    .book-collection li {
+        padding: 0 2.6%;
+        width: 33.3%;
+    }
+
+    #collection-title{
+        padding: 9.6% 3%;
+    }
+
+    #logo {
+        padding: 10% 0;
+    }
+
+    #logo img {
+        margin: 0 auto;
+    }
+
+    
+}
+
+@media only screen and (max-width: 728px) {
+    
+    .container{
+        max-width: 650px;
+     }
+
+    
+}
+
+@media only screen and (max-width: 550px) {
+    /* Destaques */
+    #main-nav ul li a {
+      font-size: 14px;
+    }
+
+    #cdc-diferenciais li{
+      width:100%;
+    }
+
+    #cdc-diferenciais li p{
+      float: left;
+      width:100%;
+      padding: 0 10px;
+    }
+
+    .book-collection li {
+      padding: 0 5%;
+      width: 50%;
+    }
+}
+
+@media only screen and (max-width: 490px) {
+
+    #main-nav {
+        width:45%;
+    }
+
+    .cart-img-col{
+        display: none;
+    }
+
+    #collections-footer,
+    #social-footer,
+    #newsletter-footer {
+        margin: 0;
+        clear:left;
+        width:75%;
+        padding:0 14%; 
+    }
+}
+
+@media only screen and (max-width: 455px) {
+
+    #logo{
+        margin:0;
+        width: 100%;
+    }
+
+    #logo a{
+        margin:0 auto;
+        height:66px;
+        width:195px;
+    }
+
+    #header-content{
+        margin:0;
+        clear:left;
+    }
+
+    #header-content #main-nav{
+        float:none;
+        width:100%;
+        margin:0;
+    }
+
+    #header-content #main-nav ul > li:not(:first-child){
+        display:none;
+    }
+
+    #home-highlight-collection li a h3{
+        display:none;
+    }
+
+    #home-highlight-collection li a small{
+        position: static;
+        clear: left;
+        margin: 0 auto;
+        width: 156px;
+    }
+
+    #home-highlight-collection li a img{
+        float: none;
+        margin: 0;
+    }
+
+    #home-highlight-collection li a h2{
+        text-align: center;
+    }
+    #collection-title {
+        width: 84%;
+        padding-left: 8%;
+        padding-right: 8%;
+    }
+
+    .book-collection li {
+      padding: 0 5%;
+      width: 50%;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    /* listagem de livros */
+    .book-collection li {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+    }
+
+    .book-collection li a:hover small{
+        display: none;
+    }
+
+    .book-collection li a img {
+        display: none;
+    }
+    .footer-payments {
+        width: 13em;
+    }
+
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (min--moz-device-pixel-ratio: 1.5),
+only screen and (-o-min-device-pixel-ratio: 3/2),

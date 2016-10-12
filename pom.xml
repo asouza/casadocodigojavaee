@@ -119,24 +119,52 @@
 			<version>1.9.11</version>
 		</dependency>
 
-		<!-- spring -->
+		<!-- javaee7 api -->
 
 		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-web</artifactId>
-			<version>4.0.1.RELEASE</version>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+			<version>7.0</version>
+			<scope>provided</scope>
 		</dependency>
+
 		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-config</artifactId>
-			<version>4.0.1.RELEASE</version>
+			<groupId>org.picketbox</groupId>
+			<artifactId>picketbox</artifactId>
+			<version>4.9.2.Final</version>
+			<scope>provided</scope>
 		</dependency>
-		
+
 		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-orm</artifactId>
-			<version>4.1.0.RELEASE</version>
-		</dependency>		
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>5.2.0.Final</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>resteasy-jaxb-provider</artifactId>
+			<version>3.0.11.Final</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>4.3.10.Final</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>4.3.10.Final</version>
+			<scope>provided</scope>
+		</dependency>
+
+
+
 	</dependencies>
 	<build>
 		<finalName>casadocodigo</finalName>
@@ -150,4 +178,25 @@
 			</plugin>
 		</plugins>
 	</build>
+
+	<profiles>
+		<profile>
+			<id>openshift</id>
+			<build>
+				<finalName>openshift-deploy</finalName>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-war-plugin</artifactId>
+						<version>2.3</version>
+						<configuration>
+							<failOnMissingWebXml>false</failOnMissingWebXml>
+							<outputDirectory>deployments</outputDirectory>
+							<warName>ROOT</warName>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 </project>

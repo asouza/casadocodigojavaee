@@ -1,0 +1,39 @@
+<html xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+	<h:body>
+		<div>
+			<h:outputFormat value="#{msg.usuarios_bemVindo}">  				  				
+  				<f:param value="#{currentUser.get().email}" />
+			</h:outputFormat>			
+		</div>
+		<h:messages id="messages"/>
+		<h:dataTable value="#{adminListBooksBean.books}" var="book">
+			<h:column>
+				<f:facet name="header">Titulo</f:facet>
+				#{book.title}
+			</h:column>
+			<h:column>
+				<f:facet name="header">Número de páginas</f:facet>
+				#{book.numberOfPages}
+			</h:column>
+			<h:column>
+				<f:facet name="header">Autores</f:facet>
+				<ui:repeat var="author" value="#{book.authors}">
+					#{author.name}|					
+				</ui:repeat>
+			</h:column>
+			<h:column>
+				<f:facet name="header">Sumário</f:facet>				
+				<h:outputLink value="#{book.summaryPath}">#{book.summaryPath}</h:outputLink>							
+			</h:column>
+			<h:column>
+				<f:facet name="header">Atualizar</f:facet>
+				<h:form>				
+					<h:commandButton action="#{adminBooksBean.update(book.id)}" value="Atualizar" />
+				</h:form>							
+			</h:column>
+		</h:dataTable>
+	</h:body>
+</html>

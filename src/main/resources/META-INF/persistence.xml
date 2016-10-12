@@ -13,6 +13,11 @@
 			<property name="hibernate.show_sql" value="true" />
 			<property name="hibernate.format_sql" value="true" />
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
+			<property name="hibernate.cache.use_query_cache" value="true"/>
+			
+			<!-- infinispan cache -->
+			<property name="hibernate.cache.infinispan.br.com.casadocodigo.models.Book.expiration.lifespan" value= "900000"/>			
+			<property name="hibernate.cache.infinispan.home.expiration.lifespan" value= "900000"/>			
 		</properties>
 	</persistence-unit>
 </persistence>

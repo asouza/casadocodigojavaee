@@ -1,0 +1,282 @@
+
+/* Product */
+#product-highlight {
+  padding: 30px 0;
+  background: url(//cdn.shopify.com/s/files/1/0155/7645/t/177/assets/tx.jpg?3271957760590208736);
+
+}
+
+.product-featured-image {
+  box-shadow: 0 4px 10px -4px rgba(0,0,0,.75);
+  float: left;
+  margin-right: 30px;
+  width: 280px;
+}
+
+.product-title {
+  font: bold 50px "Museo", Sans-serif;
+  margin: 0;
+}
+
+.product-author {
+  font: 22px "Museo", Sans-serif;
+  text-shadow: 1px 1px rgb(255,255,255);
+}
+
+.beta-book {
+    font-style:italic;
+}
+
+.book-description {
+    white-space: pre-line;
+    color: #000;
+}
+
+/* Prices Area */
+
+.buy-options {
+  box-shadow: 0 0 4px rgba(0,0,0,.75);
+  text-align: center;
+}
+
+.buy-options h2{
+  color: black;
+}
+
+.form-product-unavailable input{
+  text-align: center;
+}
+
+#form-product-newsletter {
+  margin-top: -1%;
+}
+
+#form-product-newsletter input{
+  width: 69%;
+  padding: 1% 0%;
+  border:0;
+  max-width: 200px;
+  font-family: 'Droid Sans', Arial, sans-serif;
+  border:0;
+}
+
+#form-product-newsletter input + input{
+  margin-left: 2%;
+}
+
+#submit-product-newsletter{
+  padding: 10px 5px;
+  color: white;
+  font-size: 16px;
+  width: 70%;
+  max-width: 200px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-family: 'Droid Sans', Arial, sans-serif;
+}
+
+#variants {
+  float: left;
+  display: inline-block;
+  margin: 0 20px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.variant-radio {
+  margin-right: 5px;
+}
+
+.variant-label {
+  font-weight: bold;
+  font-size:130%;
+}
+
+.compare-at-price{
+	display: block;
+	position: absolute;
+	bottom: 32px;
+	right: 10px;
+	font-size: 9pt;
+	text-decoration: line-through;
+}
+
+.variant-price{
+	font: bold 147% "Museo",Sans-serif;
+	margin: 0px;
+	right:10px;
+	bottom:10px;
+	position: absolute;
+	clear: right;
+}
+
+.frete{
+  font-size:10px;
+}
+
+.buy-option{
+    display: inline-block;
+    text-align: left;
+    position: relative;
+    height: 60px;
+    margin: 20px 0px 20px 20px;
+    width: 169px;
+    padding: 10px;
+    vertical-align: middle;
+}
+
+.buy-option:first-child{
+    margin: 20px 0;
+}
+
+.submit-image{
+    border:0;
+    font-size: 1.37em;
+    cursor: pointer;
+    display: inline-block;
+    padding: 1em .5em;
+    float: right;
+    text-transform: uppercase;
+    margin-top: 27px;
+    margin-bottom: 27px;
+    font-family: inherit;
+    border-radius: 7px;
+    color: white;
+    box-shadow: 0px 2px 3px 1px rgba(0, 0, 0, 0.3), inset 0px 0px 3px 1px rgba(255,255,255,0.6);
+    text-shadow: 1px 1px 0px black;
+}
+
+.submit-image:before {
+    margin-right: .5em;
+    font-size: 1.4em;
+    vertical-align: middle;
+}
+
+.submit-image:after {
+    content: "Comprar";
+    margin-right: 0.3em;
+    vertical-align: middle;
+}
+
+/* Book Data */
+.summary-call {
+  clear: left;
+  padding-top: 20px;
+  width: 100%;
+  margin: 20px auto;
+}
+
+.summary {
+  -moz-column-count: 2;
+  -moz-column-gap: 1.5em;
+  -moz-column-rule: none;
+  -webkit-column-count: 2;
+  -webkit-column-gap: 1.5em;
+  -webkit-column-rule: none;
+  column-count: 2;
+  column-gap: 1.5em;
+  column-rule: none;
+  clear: both;
+  width: 80%;
+  float: left;
+  margin: 10px auto;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.summary ul{
+  margin-top: 0;
+}
+
+.summary h3{
+  margin: 0;
+  font-size: 100%
+}
+
+.summary ul li {
+  list-style: circle;
+  font-size:136%;
+}
+
+.product-detail{
+    clear: both;
+}
+
+.product-detail p{
+    width: 80%;
+}
+
+.author img{
+	margin-right:5px;
+	margin-bottom:10px;
+}
+
+.summary div{
+	width:95%;
+	float:left;
+}
+
+.summary div:not(:last-child){
+    margin-right:40px;
+}
+
+.data {
+	margin-bottom:20px;
+}
+
+@media only screen and (max-width: 1024px){
+    .summary{
+        width: 100%;
+    }
+
+    .product-detail p{
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 830px){
+    
+    #variants{
+        float:none;
+        margin: 0;
+    }
+
+    .submit-image{
+        float: none;
+        vertical-align: middle;
+        margin: 0 20px 20px;
+    }
+}
+
+@media only screen and (max-width: 642px){
+
+    #product-overview{
+        text-align: center;
+    }
+
+    .summary{
+        column-count: 1;
+        -webkit-column-count: 1;
+        -moz-column-count: 1;
+    }
+
+    #product-overview img{
+        float: none;
+        margin: 0 0 2em 0;
+    }
+
+    #variants{
+        margin: 20px 0 17px;
+    }
+
+    .buy-option, .buy-option:first-child{
+        margin: 0 0 3px;
+    }
+
+}
+
+@media only screen and (max-width: 450px){
+  .product-title{
+    font: bold 35px "Museo", Sans-serif;
+  }
+}

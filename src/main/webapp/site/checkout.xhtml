@@ -19,11 +19,12 @@
 <![endif]-->
 
 <!--[if gt IE 9]><!-->
-  <link href="//cdn.shopify.com/app/services/1557645/assets/8570485/checkout_stylesheet/v1-82b12fa351df7354d7b83c44b806404f-11981592617154272979" media="all" rel="stylesheet" />
+
+  <link href="#{request.contextPath}/resources/css/checkout-style.css" media="all" rel="stylesheet" />
 
 <!--<![endif]-->
 
-<link href="//cdn.shopify.com/s/files/1/0155/7645/t/177/assets/checkout.scss.css?11981592617154272979" media="all" rel="stylesheet" />
+<link href="#{request.contextPath}/resources/css/checkout.scss.css" media="all" rel="stylesheet" />
 
   </head>
   <body>
@@ -80,9 +81,7 @@
       <div class="fieldset" data-email-check='#checkout_email_suggestion'>
         <div class="field field--required">
           <label for="checkout_email">E-mail</label>
-          <input autocapitalize="off" autocomplete="shipping email" jsf:id="email" data-autofocus="true" jsf:value="#{checkoutBean.systemUser.email}" placeholder="E-mail" size="30" spellcheck="false" type="email">
-          		<f:validateBean validationGroups="br.com.casadocodigo.models.validation.groups.BuyerGroup"/>
-          </input>
+          <input autocapitalize="off" autocomplete="shipping email" jsf:id="email" data-autofocus="true" jsf:value="#{checkoutBean.systemUser.email}" placeholder="E-mail" size="30" spellcheck="false" type="email"/>          
 			<o:messages for="email" var="message">
 			    <p class="field_error-message">#{message.summary}</p>
 			</o:messages>          
@@ -104,7 +103,7 @@
     <div class="field field--optional">
       <label for="checkout_shipping_address_first_name">Nome</label>
       <input autocomplete="shipping given-name" jsf:id="name" jsf:value="#{checkoutBean.systemUser.firstName}" placeholder="Nome" size="30" type="text">
-      	<f:validateBean validationGroups="br.com.casadocodigo.models.validation.groups.BuyerGroup"/>
+      	<f:validateBean validationGroups="br.com.casadocodigo.loja.models.validation.groups.BuyerGroup"/>
       </input>
 			<o:messages for="name" var="message">
 			    <p class="field_error-message">#{message.summary}</p>
@@ -113,7 +112,7 @@
     <div class="field field--required">
       <label for="checkout_shipping_address_last_name">Sobrenome</label>
       <input autocomplete="shipping family-name" jsf:id="lastName" jsf:value="#{checkoutBean.systemUser.lastName}" placeholder="Sobrenome" size="30" type="text">
-      	<f:validateBean validationGroups="br.com.casadocodigo.models.validation.groups.BuyerGroup"/>
+      	<f:validateBean validationGroups="br.com.casadocodigo.loja.models.validation.groups.BuyerGroup"/>
       </input>
 			<o:messages for="lastName" var="message">
 			    <p class="field_error-message">#{message.summary}</p>
@@ -122,7 +121,7 @@
       <div class="field field--required">
         <label for="checkout_shipping_address_company">CPF/CNPJ</label>
         <input autocomplete="shipping organization" jsf:id="socialId" jsf:value="#{checkoutBean.systemUser.socialId}" placeholder="999.999.999-99" size="30" type="text">
-        	<f:validateBean validationGroups="br.com.casadocodigo.models.validation.groups.BuyerGroup"/>
+        	<f:validateBean validationGroups="br.com.casadocodigo.loja.models.validation.groups.BuyerGroup"/>
         </input>
         	<o:messages for="socialId" var="message">
 			    <p class="field_error-message">#{message.summary}</p>
@@ -131,7 +130,7 @@
     <div class="field field--required">
       <label for="checkout_shipping_address_address1">Endereço (com número)</label>
       <input autocomplete="shipping address-line1" jsf:id="address" jsf:value="#{checkoutBean.systemUser.address}" placeholder="Endereço" size="30" type="text">
-      	<f:validateBean validationGroups="br.com.casadocodigo.models.validation.groups.BuyerGroup"/>
+      	<f:validateBean validationGroups="br.com.casadocodigo.loja.models.validation.groups.BuyerGroup"/>
       </input>
 			<o:messages for="address" var="message">
 			    <p class="field_error-message">#{message.summary}</p>
@@ -141,7 +140,7 @@
     <div class="field field--required">
       <label for="checkout_shipping_address_city">Cidade</label>
       <input autocomplete="shipping locality" jsf:id="city" jsf:value="#{checkoutBean.systemUser.city}" placeholder="Cidade" size="30" type="text">
-      	<f:validateBean validationGroups="br.com.casadocodigo.models.validation.groups.BuyerGroup"/>
+      	<f:validateBean validationGroups="br.com.casadocodigo.loja.models.validation.groups.BuyerGroup"/>
       </input>
 			<o:messages for="city" var="message">
 			    <p class="field_error-message">#{message.summary}</p>
@@ -150,7 +149,7 @@
     <div class="field field--required" data-country-section="1">
       <label for="checkout_shipping_address_country">País</label>
       <select jsf:value="#{checkoutBean.systemUser.country}" jsf:id="country" size="1">  
-      	<f:validateBean validationGroups="br.com.casadocodigo.models.validation.groups.BuyerGroup"/>    	
+      	<f:validateBean validationGroups="br.com.casadocodigo.loja.models.validation.groups.BuyerGroup"/>    	
       	<f:selectItem itemValue="" itemLabel="Escolha o país"/>
       	<f:selectItem itemValue="Portugal" itemLabel="Portugal"/>
       	<f:selectItem itemValue="Brasil" itemLabel="Brasil"/>
@@ -165,7 +164,7 @@
     <div class="field field--required" data-province-section="1">
       <label for="checkout_shipping_address_province">State</label>
       <input autocomplete="shipping region" jsf:id="state" jsf:value="#{checkoutBean.systemUser.state}" placeholder="State" type="text">
-      	<f:validateBean validationGroups="br.com.casadocodigo.models.validation.groups.BuyerGroup"/>
+      	<f:validateBean validationGroups="br.com.casadocodigo.loja.models.validation.groups.BuyerGroup"/>
       </input>
 			<o:messages for="state" var="message">
 			    <p class="field_error-message">#{message.summary}</p>
@@ -174,7 +173,7 @@
     <div class="field field--required" data-zip-section="1">
       <label for="checkout_shipping_address_zip"> CEP</label>
       <input autocomplete="shipping postal-code" jsf:id="postalCode" class="postal-code" jsf:value="#{checkoutBean.systemUser.postalCode}" placeholder="22290175" size="30" type="text">
-      	<f:validateBean validationGroups="br.com.casadocodigo.models.validation.groups.BuyerGroup"/>
+      	<f:validateBean validationGroups="br.com.casadocodigo.loja.models.validation.groups.BuyerGroup"/>
       </input>
 			<o:messages for="postalCode" var="message">
 			    <p class="field_error-message">#{message.summary}</p>
@@ -183,7 +182,7 @@
       <div class="field field--hidden">
         <label for="checkout_shipping_address_phone">Telefone</label>
         <input autocomplete="shipping tel"  jsf:id="phone" jsf:value="#{checkoutBean.systemUser.phone}" placeholder="(99) 9999-9999" size="30" type="tel">
-        	<f:validateBean validationGroups="br.com.casadocodigo.models.validation.groups.BuyerGroup"/>
+        	<f:validateBean validationGroups="br.com.casadocodigo.loja.models.validation.groups.BuyerGroup"/>
         </input>
 			<o:messages for="phone" var="message">
 			    <p class="field_error-message">#{message.summary}</p>

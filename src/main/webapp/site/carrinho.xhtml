@@ -4,280 +4,73 @@
 	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:jsf="http://xmlns.jcp.org/jsf">
-	
-	<f:metadata>
-		<f:viewParam id="id" name="id" value="#{productDetailBean.id}"/>	
-	</f:metadata>	
-	
-<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="pt"><![endif]-->
-<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="pt"><![endif]-->
-<!--[if IE 8]><html class="no-js lt-ie9" lang="pt"><![endif]-->
-<head>
 
-  <meta charset="utf-8"/>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-  <link rel="icon" href="//cdn.shopify.com/s/files/1/0155/7645/t/177/assets/favicon.ico?11981592617154272979" type="image/ico"/> 
-  <link href="https://plus.googlecom/108540024862647200608" rel="publisher"/>
-
-  
-    <title>#{productDetailBean.book.title}</title>
-
-  <link href="http://cdn.shopify.com/s/files/1/0155/7645/t/177/assets/cssbase-min.css?11981592617154272979" rel="stylesheet" type="text/css"  media="all"  />
-  <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet'/>
-  <link href="http://cdn.shopify.com/s/files/1/0155/7645/t/177/assets/fonts.css?11981592617154272979" rel="stylesheet" type="text/css"  media="all"  />
-  <link href="http://cdn.shopify.com/s/files/1/0155/7645/t/177/assets/fontello-ie7.css?11981592617154272979" rel="stylesheet" type="text/css"  media="all"  />
-  <link href="http://cdn.shopify.com/s/files/1/0155/7645/t/177/assets/fontello-embedded.css?11981592617154272979" rel="stylesheet" type="text/css"  media="all"  />
-  <link href="http://cdn.shopify.com/s/files/1/0155/7645/t/177/assets/fontello.css?11981592617154272979" rel="stylesheet" type="text/css"  media="all"  />
-
-  
-  
-  
-  
-    <link href="http://cdn.shopify.com/s/files/1/0155/7645/t/177/assets/style.css?11981592617154272979" rel="stylesheet" type="text/css"  media="all"  />
-  
-  <link href="http://cdn.shopify.com/s/files/1/0155/7645/t/177/assets/layout-colors.css?11981592617154272979" rel="stylesheet" type="text/css"  media="all"  />
-  <link href="http://cdn.shopify.com/s/files/1/0155/7645/t/177/assets/responsivo-style.css?11981592617154272979" rel="stylesheet" type="text/css"  media="all"  />
-  <link rel="alternate" type="application/json+oembed" href="http://www.casadocodigo.com.br/products/livro-css-eficiente.oembed" />
-    <link href="//cdn.shopify.com/s/files/1/0155/7645/t/177/assets/guia-do-programador-style.css?11981592617154272979" rel="stylesheet" type="text/css"  media="all"  />
-    <link href="//cdn.shopify.com/s/files/1/0155/7645/t/177/assets/products.css?11981592617154272979" rel="stylesheet" type="text/css"  media="all"  />
-<link rel="canonical" href="http://www.casadocodigo.com.br/products/livro-css-eficiente" />
-</head>
-<body class="cart">
-  <header id="layout-header">
-    <div class="clearfix container">
-        <a href="/" id="logo">
-          <!-- <img src="http://cdn.shopify.com/s/files/1/0155/7645/t/177/assets/casa-do-codigo-blue.svg?11981592617154272979" alt="Casa do Codigo"> -->
-        </a>
-      <div id="header-content">
-        <nav id="main-nav">
-              <ul class="clearfix">
-                
-                  <li>
-                    
-                      <a href="/cart" rel="nofollow">Seu carrinho
-                        
-                    
-                      </a>
-                    </li>
-                
-                  <li>
-                    
-                      <a href="/pages/sobre-a-casa-do-codigo" rel="nofollow">Sobre nós
-                    
-                      </a>
-                    </li>
-                
-                  <li>
-                    
-                      <a href="/pages/perguntas-frequentes" rel="nofollow">Perguntas Frequentes
-                    
-                      </a>
-                    </li>
-                
-              </ul>
-        </nav>
-      </div>
-    </div>
-  </header>
-  <nav class="categories-nav">
-    <ul class="container">
-        <li class="category"><a href="http://www.casadocodigo.com.br">Home</a></li>
-        
-            
-                <li class="category"><a href="/collections/livros-de-agile">
-                    Agile
-                  </a></li>
-            
-        
-            
-                <li class="category"><a href="/collections/livros-de-front-end">
-                    Front End
-                  </a></li>
-            
-        
-            
-        
-            
-        
-            
-                <li class="category"><a href="/collections/livros-de-games">
-                    Games
-                  </a></li>
-            
-        
-            
-                <li class="category"><a href="/collections/livros-de-java">
-                    Java
-                  </a></li>
-            
-        
-            
-                <li class="category"><a href="/collections/livros-de-mobile">
-                    Mobile
-                  </a></li>
-            
-        
-            
-                <li class="category"><a href="/collections/livros-desenvolvimento-web">
-                    Web
-                  </a></li>
-            
-        
-            
-                <li class="category"><a href="/collections/outros">
-                    Outros
-                  </a></li>
-            
-        
-    </ul>
-  </nav>
-
-<section class="container middle">
-  <h2 id="cart-title">Seu carrinho de compras</h2>
-  
-  
-    <table id="cart-table">
-      <colgroup>
-        <col class="item-col"/>
-        <col class="item-price-col"/>
-        <col class="item-quantity-col"/>
-        <col class="line-price-col"/>
-        <col class="delete-col"/>
-      </colgroup>
-      <thead>
-        <tr>
-          <th class="cart-img-col"></th>
-          <th width="65%">Item</th>
-          <th width="10%">Preço</th>
-          <th width="10%">Quantidade</th>
-          <th width="10%">Total</th>
-          <th width="5%"></th>
-        </tr>
-      </thead>
-      <tbody>
-      <form jsf:id="cartForm" jsf:prependId="false" method="post">
-	      <ui:repeat var="item" value="#{shoppingCart.list}">
+<ui:composition template="/site/_template.xhtml">
+	<ui:param name="bodyClass" value="cart"/>	
+	<ui:define name="body">
+		<section class="container middle">
+		  <h2 id="cart-title">Seu carrinho de compras</h2>
+		  
+		  
+		    <table id="cart-table">
+		      <colgroup>
+		        <col class="item-col"/>
+		        <col class="item-price-col"/>
+		        <col class="item-quantity-col"/>
+		        <col class="line-price-col"/>
+		        <col class="delete-col"/>
+		      </colgroup>
+		      <thead>
 		        <tr>
-		          <td class="cart-img-col"><img src="#{item.book.coverPath}" width="71px" height="100px"/></td><td class="item-title">#{item.book.title}</td>
-		          <td class="numeric-cell">R$ #{item.price}</td>
-		          <td class="quantity-input-cell"><input type="number" min="0" readonly="readonly" id="updates_4082273665" name="updates[4082273665]" value="#{shoppingCart.getQuantity(item)}"/></td>
-		          <td class="numeric-cell">R$ #{shoppingCart.getTotal(item)}</td>
-		          
-		          <td class="remove-item"><a jsf:action="#{shoppingCartBean.remove(item.bookId)}"><img src="//cdn.shopify.com/s/files/1/0155/7645/t/177/assets/excluir.png?11981592617154272979" alt="Excluir" title="Excluir" /></a></td>
+		          <th class="cart-img-col"></th>
+		          <th width="65%">Item</th>
+		          <th width="10%">Preço</th>
+		          <th width="10%">Quantidade</th>
+		          <th width="10%">Total</th>
+		          <th width="5%"></th>
 		        </tr>
-	      </ui:repeat>
-       </form>
-      </tbody>
-	      <tfoot>
-	        <tr>
-	          <td colspan="3"><a href="${request.contextPath}/site/checkout.xhtml" id="checkout" class="checkout">Finalizar compra </a></td>
-	          <td class="quantity-input-cell"><input type="submit" class="update-cart" disabled="disabled" name="update" value=""/></td>
-	          <td class="numeric-cell">R$ #{shoppingCart.total}</td><td></td>
-	        </tr>
-	      </tfoot>
-    </table>
-    
-  
-  
- 
-  
-  <h2>Você já conhece os outros livros da Casa do Código?</h2>
-  <ul id="collection" class="related-books">          
-      <li class="col-left">
-        <a href="/products/livro-plsql" class="block clearfix book-suggest" data-book="PL/SQL: Domine a linguagem do banco de dados Oracle">
-          <img width="113px" height="160px" src="//cdn.shopify.com/s/files/1/0155/7645/products/plsql-featured_compact.png?v=1434740236" alt="PL/SQL: Domine a linguagem do banco de dados Oracle"/>
-        </a>
-      </li>          
-  </ul>
-  
-  <h2><a href="http://www.casadocodigo.com.br">Veja todos os livros que publicamos!</a></h2>
-</section> 
+		      </thead>
+		      <tbody>
+		      <form jsf:id="cartForm" jsf:prependId="false" method="post">
+			      <ui:repeat var="item" value="#{shoppingCart.list}">
+				        <tr>
+				          <td class="cart-img-col"><img src="#{item.book.coverPath}" width="71px" height="100px"/></td><td class="item-title">#{item.book.title}</td>
+				          <td class="numeric-cell">R$ #{item.price}</td>
+				          <td class="quantity-input-cell"><input type="number" min="0" readonly="readonly" id="updates_4082273665" name="updates[4082273665]" value="#{shoppingCart.getQuantity(item)}"/></td>
+				          <td class="numeric-cell">R$ #{shoppingCart.getTotal(item)}</td>
+				          
+				          <td class="remove-item"><a jsf:action="#{shoppingCartBean.remove(item.bookId)}"><img src="//cdn.shopify.com/s/files/1/0155/7645/t/177/assets/excluir.png?11981592617154272979" alt="Excluir" title="Excluir" /></a></td>
+				        </tr>
+			      </ui:repeat>
+		       </form>
+		      </tbody>
+			      <tfoot>
+			        <tr>
+			          <td colspan="3"><a href="${request.contextPath}/site/checkout.xhtml" id="checkout" class="checkout">Finalizar compra </a></td>
+			          <td class="quantity-input-cell"><input type="submit" class="update-cart" disabled="disabled" name="update" value=""/></td>
+			          <td class="numeric-cell">R$ #{shoppingCart.total}</td><td></td>
+			        </tr>
+			      </tfoot>
+		    </table>
+		    
+		  
+		  
+		 
+		  
+		  <h2>Você já conhece os outros livros da Casa do Código?</h2>
+		  <ul id="collection" class="related-books">          
+		      <li class="col-left">
+		        <a href="/products/livro-plsql" class="block clearfix book-suggest" data-book="PL/SQL: Domine a linguagem do banco de dados Oracle">
+		          <img width="113px" height="160px" src="//cdn.shopify.com/s/files/1/0155/7645/products/plsql-featured_compact.png?v=1434740236" alt="PL/SQL: Domine a linguagem do banco de dados Oracle"/>
+		        </a>
+		      </li>          
+		  </ul>
+		  
+		  <h2><a href="http://www.casadocodigo.com.br">Veja todos os livros que publicamos!</a></h2>
+		</section> 
+	</ui:define>
 
+</ui:composition>
 
-  <footer id="layout-footer">
-    <div class="clearfix container">
-        
-                 
-                
-                    <nav class="breadcrumbs">
-                        <span>
-                            <a rel="v:url" href="/" title="Livros">Livros</a>
-                            <span class="breadcrumb">
-                                <a rel="v:url" href="/collections/livros-de-front-end"> Livros de Front End </a>
-                                <span class="breadcrumb" >
-                                    <a rel="v:url" href="/products/livro-css-eficiente">CSS Eficiente: Técnicas e ferramentas que fazem a diferença nos seus e</a>
-                                </span>
-                            </span>
-                        </span>
-                     </nav>
-                
-                 
-                
-            
-        
-
-        
- 
-      <div id="collections-footer"><!-- cdc-footer -->
-        <p class="footer-title">Coleções de Programação</p>
-        <ul class="footer-text-links">
-          <li><a href="/collections/livros-de-java">Java</a></li>
-          <li><a href="/collections/livros-desenvolvimento-web">Desenvolvimento Web</a></li>
-          <li><a href="/collections/livros-de-mobile">Mobile</a></li>
-          <li><a href="/collections/games">Games</a></li>
-          <li><a href="/collections/livros-de-front-end">Front End</a></li>
-        </ul>
-        <p class="footer-title">Outros Assuntos</p>
-        <ul class="footer-text-links">
-          <li><a href="/collections/livros-de-agile">Agile</a></li>
-          <li><a href="/collections/outros">e outros...</a></li>
-        </ul>
-      </div>
-      <div id="social-footer"><!-- books-footer -->
-         <p class="footer-title">Links da Casa do Código</p>
-         <ul class="footer-text-links">
-          <li><a href="http://livros.casadocodigo.com.br" rel="nofollow">Meus E-books</a></li>
-          <li><a href="/pages/sobre-a-casa-do-codigo">Sobre a Casa do Código</a></li>
-          <li><a href="/pages/perguntas-frequentes">Perguntas Frequentes</a></li>
-          <li><a href="https://www.caelum.com.br">Caelum - Ensino e Inovação</a></li>
-          <li><a href="http://www.codecrushing.com/" rel="nofollow">Code Crushing</a></li>
-          <li><a href="http://www.casadocodigo.com.br/pages/politica-de-privacidade" rel="nofollow">Política de Privacidade</a></li>
-         </ul>
-         <p class="footer-title">Redes Sociais</p>
-         <ul>
-          <li class="social-links">
-            <a href="http://www.twitter.com/casadocodigo" target="_blank" id="twitter" rel="nofollow">Facebook</a>
-            <a href="http://www.facebook.com/casadocodigo" target="_blank" id="facebook" rel="nofollow">Twitter</a>
-          </li>
-        </ul>
-      </div>
-      <div id="newsletter-footer"><!-- social-footer -->
-        <p class="footer-title">Receba as Novidades e Lançamentos</p>
-        <div id="form-newsletter">                  
-          <form action="" method="POST" id="ss-form" class="form-newsletter">
-            <ul>
-              <li>
-                <input type="hidden" name="pageNumber" value="0"/>
-                <input type="hidden" name="backupCache" value=""/>
-                <input type="email" name="entry.0.single" value="" class="ss-q-short" id="entry_0" placeholder="seu@email.com"/>
-              </li>
-              <li>
-                <input type="submit" name="submit" value="Quero Receber!" id="submit-newsletter"/>
-              </li>
-            </ul> 
-          </form>
-          <ul>
-          <li class="ie8"><a href="" rel="nofollow">Receba as Novidades e Lançamentos</a></li>
-          </ul>
-        </div>
-        <ul class="footer-payments">
-          <li><img class="accepts-paypal" src="//cdn.shopify.com/s/files/1/0155/7645/t/177/assets/accepts_paypal.png?11981592617154272979" border="0" alt="Paypal" width="130" height="80"/></li>
-          <li><img class="accepts-pagseguro" src="//cdn.shopify.com/s/files/1/0155/7645/t/177/assets/logopagseguro.png?11981592617154272979" border="0" alt="PagSeguro" width="180" height="26"/></li>
-        </ul>
-      </div>
-    </div>
-  </footer>
-</body>
 	
 </html>	

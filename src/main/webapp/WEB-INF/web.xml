@@ -23,9 +23,39 @@
 		<param-name>javax.faces.PROJECT_STAGE</param-name>
 		<param-value>Development</param-value>
 	</context-param>
+	
+	<context-param>
+		<param-name>org.omnifaces.CACHE_SETTING_APPLICATION_TTL</param-name>
+		<param-value>900</param-value>
+	</context-param>
 
-	<persistence-unit-ref>
-		<persistence-unit-ref-name>persistence/casadocodigo-emf</persistence-unit-ref-name>
-		<persistence-unit-name>casadocodigo-persistence-unit</persistence-unit-name>
-	</persistence-unit-ref>
+	<login-config>		
+		<auth-method>FORM</auth-method>	
+		<form-login-config>
+			<form-login-page>/users/login.xhtml</form-login-page>
+			<form-error-page>/users/login.xhtml</form-error-page>		
+		</form-login-config>
+	</login-config>
+
+	<security-constraint>
+		<display-name>Administracao</display-name>
+		<web-resource-collection>
+			<web-resource-name>administracao</web-resource-name>
+			<description>Urls que levam para paginas de administracao</description>
+			<url-pattern>/admin/*</url-pattern>
+			<http-method>GET</http-method>
+			<http-method>POST</http-method>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>ADMIN</role-name>			
+		</auth-constraint>
+	</security-constraint>
+	<security-role>
+		<role-name>ADMIN</role-name>		
+	</security-role>
+	
+	<session-config>
+		<session-timeout>15</session-timeout>
+	</session-config>
+
 </web-app>
